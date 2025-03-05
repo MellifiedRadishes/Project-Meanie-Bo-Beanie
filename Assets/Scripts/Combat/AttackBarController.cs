@@ -3,16 +3,17 @@ using UnityEngine;
 public class AttackBarController : MonoBehaviour
 {
     public Transform attackBar; // The moving pointer (red)
-    public Transform sliderBar; // The background bar (for reference)(green)
-    public Transform greenBar;
+    public Transform sliderBar; // The background bar (black)
+    public Transform greenBar; // The target zone (green)
     public float speed = 5f; // Speed of movement
+
     private float leftLimit, rightLimit;
     private bool movingRight = true;
 
     void Start()
     {
-        // Get the size of the SliderBar to determine movement limits
-        float barWidth = sliderBar.localScale.x / 2; // Half the width
+        // Get actual width in world space
+        float barWidth = sliderBar.GetComponent<Renderer>().bounds.size.x / 2;
         leftLimit = sliderBar.position.x - barWidth;
         rightLimit = sliderBar.position.x + barWidth;
     }
@@ -20,15 +21,16 @@ public class AttackBarController : MonoBehaviour
     void Update()
     {
         // Move the AttackBar (pointer) back and forth
+        float moveAmount = speed * Time.deltaTime;
         if (movingRight)
         {
-            attackBar.position += Vector3.right * speed * Time.deltaTime;
+            attackBar.position += Vector3.right * moveAmount;
             if (attackBar.position.x >= rightLimit)
                 movingRight = false;
         }
         else
         {
-            attackBar.position += Vector3.left * speed * Time.deltaTime;
+            attackBar.position += Vector3.left * moveAmount;
             if (attackBar.position.x <= leftLimit)
                 movingRight = true;
         }
@@ -42,9 +44,10 @@ public class AttackBarController : MonoBehaviour
 
     void CheckHit()
     {
-        float center = greenBar.position.x; // The center of the bar
-        float greenWidth = greenBar.localScale.x / 2;
-        if ((center - greenWidth) < attackBar.position.x | attackBar.position.x < (center + greenWidth))
+        float center = greenBar.position.x; // Center of the green bar
+        float greenWidth = greenBar.GetComponent<Renderer>().bounds.size.x / 2;
+
+        if (attackBar.position.x >= (center - greenWidth) && attackBar.position.x <= (center + greenWidth))
         {
             Debug.Log("Green bar was hit. Attack detected");
         }
