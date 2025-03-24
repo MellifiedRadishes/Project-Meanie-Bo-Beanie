@@ -341,7 +341,7 @@ RectTransform:
   m_GameObject: {fileID: 844558952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -18.4}
-  m_LocalScale: {x: 159.99344, y: 258.1325, z: 1}
+  m_LocalScale: {x: 401.9995, y: 129.06883, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 133543050}
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.28436577, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 1028293917}
   - component: {fileID: 1028293919}
   - component: {fileID: 1028293918}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SliderBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1643236107}
   - component: {fileID: 1643236108}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AttackBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,8 +536,8 @@ Transform:
   m_GameObject: {fileID: 1643236106}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -422.06, y: -19.245, z: -20}
-  m_LocalScale: {x: 31.875057, y: 70.9767, z: 1}
+  m_LocalPosition: {x: -456, y: -19.245, z: -30}
+  m_LocalScale: {x: 31.875057, y: 168.56966, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 133543050}
@@ -585,7 +585,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_FlipX: 0

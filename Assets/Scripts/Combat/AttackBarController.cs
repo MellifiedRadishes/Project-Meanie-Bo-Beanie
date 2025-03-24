@@ -50,6 +50,7 @@ public class AttackBarController : MonoBehaviour
         if (attackBar.position.x >= (center - greenWidth) && attackBar.position.x <= (center + greenWidth))
         {
             Debug.Log("Green bar was hit. Attack detected");
+            speed = 0f;
         }
     }
 }
