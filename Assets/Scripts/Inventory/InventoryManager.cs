@@ -68,38 +68,3 @@ public class InventorySystem
         }
     }
 }
-
-// Testing the inventory system
-public class MainGame
-{
-    public static void Main()
-    {
-        Player player = new Player();
-        InventorySystem inventory = new InventorySystem();
-
-        // Add items
-        inventory.AddItem("Cake", 2, new CakeEffect());
-        inventory.AddItem("Potion", 1, new PotionEffect());
-        inventory.AddItem("Pizza", 3, new PizzaEffect());
-
-        // Show inventory
-        inventory.ShowInventory();
-        player.ShowStats();
-
-        // Use items
-        Console.WriteLine("\nUsing Cake...");
-        inventory.UseItem("Cake", player);
-        player.ShowStats();
-
-        Console.WriteLine("\nUsing Potion...");
-        inventory.UseItem("Potion", player);
-        player.ShowStats();
-
-        Console.WriteLine("\nUsing Pizza...");
-        inventory.UseItem("Pizza", player);
-        player.ShowStats();
-
-        // Show final inventory
-        inventory.ShowInventory();
-    }
-}
