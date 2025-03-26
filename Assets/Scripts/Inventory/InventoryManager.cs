@@ -32,7 +32,7 @@ public class InventorySystem
     }
 
     // Use an item from inventory
-    public void UseItem(string itemName, Player player)
+    public void UseItem(string itemName, MeaniePlayer player)
     {
         if (inventory.ContainsKey(itemName) && inventory[itemName].Amount > 0)
         {
