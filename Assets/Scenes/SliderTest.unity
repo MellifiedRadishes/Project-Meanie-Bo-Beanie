@@ -455,6 +455,9 @@ MonoBehaviour:
   sliderBar: {fileID: 1028293917}
   greenBar: {fileID: 844558953}
   speed: 75
+  leftLimit: 0
+  rightLimit: 0
+  movingRight: 1
 --- !u!212 &1028293919
 SpriteRenderer:
   m_ObjectHideFlags: 0
