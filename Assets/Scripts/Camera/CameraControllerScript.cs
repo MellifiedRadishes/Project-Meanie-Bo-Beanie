@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CameraControllerScript : MonoBehaviour
 {
+    [SerializeField] private float CameraOffset;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,6 +13,6 @@ public class CameraControllerScript : MonoBehaviour
     void Update()
     {
         //Locks Camera Y Value
-        transform.position = new Vector3(transform.position.x, transform.position.y, -2.75f);
+        transform.position = new Vector3(transform.position.x, transform.position.y, CameraOffset);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerMovementScript : MonoBehaviour
     private CharacterController Controller;
     private float VerticalInput;
     private float HortizontalInput;
+    private Boolean InCutscene;
+    private SCENE oldScene;
     
     //Visuals
     private SpriteRenderer SR;
@@ -18,14 +21,17 @@ public class PlayerMovementScript : MonoBehaviour
     void Start()
     {
         //Creates Character Controller Component
-        Controller = gameObject.AddComponent<CharacterController>();
+        Controller = gameObject.GetComponent<CharacterController>();
         SR = gameObject.GetComponent<SpriteRenderer>();
+        InCutscene = false;
     }
 
     void Update()
     {
-        Move();
-        SpriteDirectionUpdate();
+        if (!InCutscene) {
+            Move();
+            SpriteDirectionUpdate();
+        }
     }
 
 
@@ -55,6 +61,19 @@ public class PlayerMovementScript : MonoBehaviour
         } else if (HortizontalInput < 0) {
             SR.flipX = true;
         }
+    }
+
+    /*====SETTERS/GETTERS====*/
+    public void SetCutscene(Boolean boolean) {
+        InCutscene = boolean;
+    }
+    public void SetOldScene(SCENE scene)
+    {
+        oldScene = scene;
+    }
+    public SCENE GetOldScene()
+    {
+        return oldScene;
     }
 
 }

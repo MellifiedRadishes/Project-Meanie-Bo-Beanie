@@ -1,0 +1,3 @@
+using UnityEngine;
+
+public enum SCENE { MEANIE, WALLY, NEIGHBORHOOD, TOWN, DOENUTS, WOODS, COMBAT }
