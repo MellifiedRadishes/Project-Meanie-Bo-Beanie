@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 839007123983928558, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 863771652999729856, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -480,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 5
   Gravity: 9.8
+  InCutscene: 0
 --- !u!65 &546274121
 BoxCollider:
   m_ObjectHideFlags: 0

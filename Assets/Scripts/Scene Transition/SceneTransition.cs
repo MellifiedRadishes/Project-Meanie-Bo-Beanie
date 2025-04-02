@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
+    public static SceneTransition instance;
 
     /*====ANIMATION VARIABLES====*/
     SCENE oldScene;
@@ -15,15 +16,29 @@ public class SceneTransition : MonoBehaviour
     private PersistentObject PersistentObjects;
 
     /*==Player Object/Scripts==*/
-    public GameObject Player;
-    public CharacterController PlayerCharacterController;
+    private GameObject Player;
+    private CharacterController PlayerCharacterController;
+    private PlayerMovementScript PlayerMovement;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         PersistentObjects = GameObject.Find("PERSISTENTOBJECTS").GetComponent<PersistentObject>();
         Player = GameObject.Find("Player");
         PlayerCharacterController = GameObject.Find("Player").GetComponent<CharacterController>();
+        PlayerMovement = GameObject.Find("Player").GetComponent<PlayerMovementScript>();
     }
 
     // Update is called once per frame
@@ -32,64 +47,59 @@ public class SceneTransition : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TriggerCombat();
+
         }
         if (Input.GetKeyDown(KeyCode.K)) {
             LeaveCombat();
         }
     }
-
+    /*====FUNCTIONS TO TRIGGER SCENE TRANSITIONS====*/
     void TriggerCombat()
     {
         oldScene = (SCENE) SceneManager.GetActiveScene().buildIndex;
-        StartCoroutine(LoadCombat());
+        StartCoroutine(ToggleCombat(SCENE.COMBAT, false));
     }
     void LeaveCombat()
     {
-        StartCoroutine(ExitCombat(oldScene));
+        StartCoroutine(ToggleCombat(oldScene, true));
     }
-
     public void TriggerSceneChange(SCENE scene, Vector3 newPosition) {
         StartCoroutine(LoadMapScene(scene, newPosition));
     }
 
-    IEnumerator LoadCombat() {
-        transition.SetTrigger("START");
-        
-        yield return new WaitForSeconds(transitionDuration);
+    /*====COROUTINES FOR SCENE TRANSITIONS====*/
+    IEnumerator ToggleCombat(SCENE scene, Boolean poEnable) {
 
-        SceneManager.LoadScene((int)SCENE.COMBAT);
-
-        PersistentObjects.ToggleChildren(false);
-        
-    }
-
-    IEnumerator ExitCombat(SCENE scene)
-    {
-        transition.SetTrigger("START");
+        PlayerMovement.SetCutscene(true); // Stop Player Movement
+        transition.SetTrigger("HIDE"); // Hide Current Scene
 
         yield return new WaitForSeconds(transitionDuration);
 
-        SceneManager.LoadScene((int)scene);
+        SceneManager.LoadScene((int) scene);
 
-        PersistentObjects.ToggleChildren(true);
+        // Temporarily Deactive
+        PersistentObjects.ToggleChildren(poEnable);
+
+        transition.ResetTrigger("HIDE"); // Reveal Scene
+        PlayerMovement.SetCutscene(false); // Re-enable Player Movement
 
     }
 
     IEnumerator LoadMapScene(SCENE scene, Vector3 newPosition)
     {
-        transition.SetTrigger("START");
+        PlayerMovement.SetCutscene(true); // Stop Player Movement
+        transition.SetTrigger("HIDE"); // Hide Current Scene
 
         yield return new WaitForSeconds(transitionDuration);
 
         SceneManager.LoadScene((int)scene);
 
+        // Force Change Player Position
         PlayerCharacterController.enabled = false;
         Player.transform.position = newPosition;
         PlayerCharacterController.enabled = true;
 
-        transition.SetTrigger("START");
-
+        transition.ResetTrigger("HIDE"); // Reveal Scene
+        PlayerMovement.SetCutscene(false); // Re-enable Player Movement
     }
-
-
 }

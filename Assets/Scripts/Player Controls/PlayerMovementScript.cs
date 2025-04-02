@@ -12,8 +12,7 @@ public class PlayerMovementScript : MonoBehaviour
     private CharacterController Controller;
     private float VerticalInput;
     private float HortizontalInput;
-    private Boolean InCutscene;
-    private SCENE oldScene;
+    public Boolean InCutscene;
     
     //Visuals
     private SpriteRenderer SR;
@@ -66,14 +65,6 @@ public class PlayerMovementScript : MonoBehaviour
     /*====SETTERS/GETTERS====*/
     public void SetCutscene(Boolean boolean) {
         InCutscene = boolean;
-    }
-    public void SetOldScene(SCENE scene)
-    {
-        oldScene = scene;
-    }
-    public SCENE GetOldScene()
-    {
-        return oldScene;
     }
 
 }
