@@ -4,21 +4,37 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 public class DialogueManager : MonoBehaviour {
-    public static event Action<Story> OnCreateStory;
 
-    [SerializeField]
-    private TextAsset inkJSONAsset = null;
+    public static event Action<Story> OnCreateStory;
+    public static DialogueManager instance; //Stores Instance for Persistant Game Object
+
+    // Dialogue Objects
+    [SerializeField] private GameObject dialogueBox = null;
+    [SerializeField] private TextMeshProUGUI dialogueTitle = null;
+    [SerializeField] private TextMeshProUGUI textObject = null;
     public Story story;
 
     // UI Prefabs
-    [SerializeField]
-    private TextMeshProUGUI textObject = null;
-    [SerializeField]
-    private Button buttonPrefab = null;
 
-    void Awake () {
-		StartStory();
-	}
+    [SerializeField] private Button buttonPrefab = null;
+
+    private GameObject player;
+    private PlayerMovementScript playerMovement;
+
+    private void Awake()
+    {
+        player = GameObject.Find("Player");
+        playerMovement = player.GetComponent<PlayerMovementScript>();
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update()
     {
@@ -30,10 +46,12 @@ public class DialogueManager : MonoBehaviour {
     }
 
     // Creates a new Story object and starts
-    void StartStory () {
-		story = new Story (inkJSONAsset.text);
-        if(OnCreateStory != null) OnCreateStory(story);
-		RefreshView();
+    public void StartStory (TextAsset dialogue, string dialogueName) {
+		story = new Story (dialogue.text);
+        if (OnCreateStory != null) OnCreateStory(story);
+        ToggleDialogueBox(true);
+        dialogueTitle.text = dialogueName;
+        RefreshView();
 	}
 	
 	// Updates Text Object using Ink Story
@@ -46,7 +64,15 @@ public class DialogueManager : MonoBehaviour {
 			// This removes any white space from the text.
 			textObject.text = textObject.text.Trim();
 		}
+		else {
+            ToggleDialogueBox(false);
+            playerMovement.SetCutscene(false);
+        }
 	}
+
+    void ToggleDialogueBox(Boolean active) {
+        dialogueBox.SetActive(active); 
+    }
 
 
 

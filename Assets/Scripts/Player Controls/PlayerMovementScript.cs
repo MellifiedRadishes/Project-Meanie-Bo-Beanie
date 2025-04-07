@@ -63,6 +63,11 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     /*====SETTERS/GETTERS====*/
+    public Boolean GetCutscene()
+    {
+        return InCutscene;
+    }
+
     public void SetCutscene(Boolean boolean) {
         InCutscene = boolean;
     }
