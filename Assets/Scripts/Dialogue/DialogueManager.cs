@@ -15,7 +15,6 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI dialogueTitle = null;
     [SerializeField] private TextMeshProUGUI textObject = null;
     
-
     // Button Prefab
     [SerializeField] private Button buttonPrefab = null;
 
@@ -71,7 +70,7 @@ public class DialogueManager : MonoBehaviour {
             // This removes any white space from the text.
             textObject.text = textObject.text.Trim();
         }
-        else if (!choicePoint)
+        else
         {
             // If the story cannot continue and there are no choices, end dialogue
             ToggleDialogueBox(false);
