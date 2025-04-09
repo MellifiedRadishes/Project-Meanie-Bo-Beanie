@@ -1,0 +1,7 @@
+- This is a dialogue test
+- Wow look at how I just moved to the second line
+- And now a third one? So cool
+- i just want to go to bed
+- i am being punished for my hubris, trapped in a prison of my own design
+- anyway green square iz funni
+-> END
