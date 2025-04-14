@@ -5,6 +5,7 @@ public class AttackBarController : MonoBehaviour
     public Transform attackBar; // The moving pointer (red)
     public Transform sliderBar; // The background bar (black)
     public Transform greenBar; // The target zone (green)
+    public Transform criticalBar; // The critical bar
     public float speed = 5f; // Speed of movement
 
     private float leftLimit, rightLimit;
@@ -42,15 +43,27 @@ public class AttackBarController : MonoBehaviour
         }
     }
 
-    void CheckHit()
+    int CheckHit()
     {
-        float center = greenBar.position.x; // Center of the green bar
+        
+        float centerCrit = criticalBar.position.x;
+        float critWidth = criticalBar.GetComponent<Renderer>().bounds.size.x / 2;
+        if (attackBar.position.x >= (centerCrit - critWidth) && attackBar.position.x <= (centerCrit + critWidth))
+        {
+            Debug.Log("Critical bar was hit. Critical Attack detected");
+            speed = 0;
+            return 2;
+        }
+        
+        float centerGreen = greenBar.position.x; // Center of the green bar
         float greenWidth = greenBar.GetComponent<Renderer>().bounds.size.x / 2;
-
-        if (attackBar.position.x >= (center - greenWidth) && attackBar.position.x <= (center + greenWidth))
+        if (attackBar.position.x >= (centerGreen - greenWidth) && attackBar.position.x <= (centerGreen + greenWidth))
         {
             Debug.Log("Green bar was hit. Attack detected");
             speed = 0f;
+            return 1;
         }
+
+        return 0;
     }
 }
