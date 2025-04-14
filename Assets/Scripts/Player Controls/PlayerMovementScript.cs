@@ -13,28 +13,31 @@ public class PlayerMovementScript : MonoBehaviour
     private float VerticalInput;
     private float HortizontalInput;
     public Boolean InCutscene;
-    
-    //Visuals
-    private SpriteRenderer SR;
 
+    //Visuals
+    [SerializeField] private GameObject model;
+    private Animator animator;
     void Start()
     {
         //Creates Character Controller Component
         Controller = gameObject.GetComponent<CharacterController>();
-        SR = gameObject.GetComponent<SpriteRenderer>();
         InCutscene = false;
+        animator = model.GetComponent<Animator>();
     }
 
     void Update()
     {
+        VerticalInput = 0;
+        HortizontalInput = 0;
         if (!InCutscene) {
             Move();
-            SpriteDirectionUpdate();
         }
+        UpdateModel();
     }
 
 
     private void Move() {
+
         //Reads User Input
         VerticalInput = Input.GetAxis("Vertical");
         HortizontalInput = Input.GetAxis("Horizontal");
@@ -54,11 +57,23 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
-    private void SpriteDirectionUpdate() {
+    private void UpdateModel() {
+        
+        if (VerticalInput == 0 && HortizontalInput == 0)
+        {
+            animator.ResetTrigger("WALK");
+        }
+        else {
+            animator.SetTrigger("WALK");
+        }
+        ModelDirectionUpdate();
+    }
+
+    private void ModelDirectionUpdate() {
         if (HortizontalInput > 0) {
-            SR.flipX = false;
+            model.transform.localScale = new Vector3(-.1f, .1f, .1f);
         } else if (HortizontalInput < 0) {
-            SR.flipX = true;
+            model.transform.localScale = new Vector3(.1f, .1f, .1f);
         }
     }
 
