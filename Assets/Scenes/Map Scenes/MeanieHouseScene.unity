@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f511af3361fc74aa0e07b04344e9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
+  MoveSpeed: 2.75
   Gravity: 9.8
   InCutscene: 0
   model: {fileID: 1298054090}
