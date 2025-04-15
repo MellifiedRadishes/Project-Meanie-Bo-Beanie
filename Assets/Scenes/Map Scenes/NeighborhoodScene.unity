@@ -858,9 +858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37d5cce5999aa74bb0d079d6dd25221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONMainDialogue: {fileID: 4900000, guid: eb738d72bd40b6247875fb0b4153aa8a, type: 3}
-  inkJSONSecondDialogue: {fileID: 4900000, guid: 5fd5156db8940b445830ddcc37d948a4, type: 3}
-  dialogueTitle: Red Square
+  inkJSONMainDialogue: {fileID: 4900000, guid: 86a53aaa437ad9146b3a1eeff0304b44, type: 3}
+  inkJSONSecondDialogue: {fileID: 4900000, guid: 86a53aaa437ad9146b3a1eeff0304b44, type: 3}
 --- !u!212 &991558131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -986,7 +985,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJSONMainDialogue: {fileID: 4900000, guid: f2a3e866f35259744a1f2892f34b4cb0, type: 3}
   inkJSONSecondDialogue: {fileID: 4900000, guid: f2a3e866f35259744a1f2892f34b4cb0, type: 3}
-  dialogueTitle: Red Square
 --- !u!212 &991683772
 SpriteRenderer:
   m_ObjectHideFlags: 0

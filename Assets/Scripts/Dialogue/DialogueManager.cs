@@ -3,17 +3,19 @@ using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class DialogueManager : MonoBehaviour {
 
     public Story story;
     public static event Action<Story> OnCreateStory;
-    public static DialogueManager instance; //Stores Instance for Persistant Game Object
 
     // Dialogue Objects
-    [SerializeField] private GameObject dialogueBox = null;
-    [SerializeField] private GameObject choiceContainer = null;
-    [SerializeField] private TextMeshProUGUI dialogueTitle = null;
-    [SerializeField] private TextMeshProUGUI textObject = null;
+    [SerializeField] private GameObject DialogueBox = null;
+    [SerializeField] private GameObject ChoiceContainer = null;
+    [SerializeField] private TextMeshProUGUI TextObject = null;
+
+    // Functions
+    private InkDialogueFunctions ExternalFunctions;
     
     // Button Prefab
     [SerializeField] private Button buttonPrefab = null;
@@ -27,54 +29,55 @@ public class DialogueManager : MonoBehaviour {
 
     private void Awake()
     {
+        ExternalFunctions = new InkDialogueFunctions();
         player = GameObject.Find("Player");
         playerMovement = player.GetComponent<PlayerMovementScript>();
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void Update()
     {
-		if (story != null) { // Refreshes text on input
+        if (story != null) { // Refreshes text on input
 			if (Input.GetMouseButtonDown(0) && !choicePoint) {
 				RefreshView();
             }
 		}
     }
-
-    /*====DIALOGUE PARSING====*/
+    /*====DIALOGUE START/STOP====*/
 
     // Creates a new Story object and starts
-    public void StartStory (TextAsset dialogue, string dialogueName) {
+    public void StartStory (TextAsset dialogue) {
 		story = new Story (dialogue.text);
         if (OnCreateStory != null) OnCreateStory(story);
         ToggleDialogueBox(true);
-        dialogueTitle.text = dialogueName;
+        ExternalFunctions.Bind(story);
         RefreshView();
-	}
-	
-	// Updates Text Object using Ink Story
-	void RefreshView () {
+    }
+
+    public void EndStory()
+    {
+        // If the story cannot continue and there are no choices, end dialogue
+        ToggleDialogueBox(false);
+        playerMovement.SetCutscene(false);
+        ExternalFunctions.Unbind(story);
+        story = null;
+    }
+
+    /*====DIALOGUE PARSING====*/
+    // Updates Text Object using Ink Story
+    void RefreshView () {
         RemoveButtons(); //Removes Any Buttons from Previous Choice
         if (story.canContinue)
         {
             // Set text to the next line of the story
-            textObject.text = story.Continue();
+            TextObject.text = story.Continue();
             // This removes any white space from the text.
-            textObject.text = textObject.text.Trim();
+            TextObject.text = TextObject.text.Trim();
+
         }
         else
         {
-            // If the story cannot continue and there are no choices, end dialogue
-            ToggleDialogueBox(false);
-            playerMovement.SetCutscene(false);
+            EndStory();
+            return;
         }
 
         // Check for Choices
@@ -97,7 +100,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void ToggleDialogueBox(Boolean active) {
-        dialogueBox.SetActive(active); 
+        DialogueBox.SetActive(active); 
     }
 
     /*====BUTTON FUNCTIONS====*/
@@ -113,7 +116,7 @@ public class DialogueManager : MonoBehaviour {
     {
         // Creates the button from a prefab
         Button choice = Instantiate(buttonPrefab) as Button;
-        choice.transform.SetParent(choiceContainer.transform, false);
+        choice.transform.SetParent(ChoiceContainer.transform, false);
 
         // Gets the text from the button prefab
         Text choiceText = choice.GetComponentInChildren<Text>();
@@ -129,10 +132,10 @@ public class DialogueManager : MonoBehaviour {
     // Destroys all buttons from choice container
     void RemoveButtons()
     {
-        int childCount = choiceContainer.transform.childCount;
+        int childCount = ChoiceContainer.transform.childCount;
         for (int i = childCount - 1; i >= 0; --i)
         {
-            Destroy(choiceContainer.transform.GetChild(i).gameObject);
+            Destroy(ChoiceContainer.transform.GetChild(i).gameObject);
         }
     }
 

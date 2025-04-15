@@ -9,7 +9,7 @@ public class SceneTransition : MonoBehaviour
 
     /*====ANIMATION VARIABLES====*/
     SCENE oldScene;
-    [SerializeField] Animator transition;
+    [SerializeField] Animator WipeTransition;
     public float transitionDuration = 1f;
 
     /*====SAVED GAME OBJECTS====*/
@@ -20,19 +20,6 @@ public class SceneTransition : MonoBehaviour
     private CharacterController PlayerCharacterController;
     private PlayerMovementScript PlayerMovement;
 
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
     void Start()
     {
         PersistentObjects = GameObject.Find("PERSISTENTOBJECTS").GetComponent<PersistentObject>();
@@ -71,7 +58,7 @@ public class SceneTransition : MonoBehaviour
     IEnumerator ToggleCombat(SCENE scene, Boolean poEnable) {
 
         PlayerMovement.SetCutscene(true); // Stop Player Movement
-        transition.SetTrigger("HIDE"); // Hide Current Scene
+        WipeTransition.SetTrigger("HIDE"); // Hide Current Scene
 
         yield return new WaitForSeconds(transitionDuration);
 
@@ -80,7 +67,7 @@ public class SceneTransition : MonoBehaviour
         // Temporarily Deactive
         PersistentObjects.ToggleChildren(poEnable);
 
-        transition.ResetTrigger("HIDE"); // Reveal Scene
+        WipeTransition.ResetTrigger("HIDE"); // Reveal Scene
         PlayerMovement.SetCutscene(false); // Re-enable Player Movement
 
     }
@@ -88,7 +75,7 @@ public class SceneTransition : MonoBehaviour
     IEnumerator LoadMapScene(SCENE scene, Vector3 newPosition)
     {
         PlayerMovement.SetCutscene(true); // Stop Player Movement
-        transition.SetTrigger("HIDE"); // Hide Current Scene
+        WipeTransition.SetTrigger("HIDE"); // Hide Current Scene
 
         yield return new WaitForSeconds(transitionDuration);
 
@@ -99,7 +86,7 @@ public class SceneTransition : MonoBehaviour
         Player.transform.position = newPosition;
         PlayerCharacterController.enabled = true;
 
-        transition.ResetTrigger("HIDE"); // Reveal Scene
+        WipeTransition.ResetTrigger("HIDE"); // Reveal Scene
         PlayerMovement.SetCutscene(false); // Re-enable Player Movement
     }
 }
