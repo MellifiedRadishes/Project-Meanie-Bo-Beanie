@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2867066805655547819}
   - component: {fileID: 2013186982132680556}
   m_Layer: 0
-  m_Name: DialogueName
+  m_Name: SpeakerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2220174349924501744}
-  - component: {fileID: 4523532135375979960}
+  - component: {fileID: 8497158719513660898}
   m_Layer: 0
   m_Name: DialogueChoicesContainer
   m_TagString: Untagged
@@ -172,7 +172,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 1000, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4523532135375979960
+--- !u!114 &8497158719513660898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2936206631791087365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -190,7 +190,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 10
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -560,10 +560,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9829da5c9978e4ea68482baa149774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 5954028614429180957}
-  choiceContainer: {fileID: 2936206631791087365}
-  dialogueTitle: {fileID: 2013186982132680556}
-  textObject: {fileID: 2447877893947841500}
+  DialogueBox: {fileID: 5954028614429180957}
+  ChoiceContainer: {fileID: 2936206631791087365}
+  SpeakerText: {fileID: 0}
+  TextObject: {fileID: 2013186982132680556}
+  cutsceneManager: {fileID: 0}
   buttonPrefab: {fileID: 11455116, guid: b3a6d34857ee1864381bf37792459f50, type: 3}
 --- !u!1 &7390561429679351774
 GameObject:

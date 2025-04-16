@@ -7,7 +7,6 @@ public class DialogueTrigger : MonoBehaviour
     // Ink Dialogue Story Files
     [SerializeField] private TextAsset inkJSONMainDialogue = null;
     [SerializeField] private TextAsset inkJSONSecondDialogue = null;
-    [SerializeField] private string dialogueTitle;
 
     // Related Game Objects
     private GameObject player;
@@ -55,11 +54,11 @@ public class DialogueTrigger : MonoBehaviour
         playerMovement.SetCutscene(true);
         if (interacted) // Plays Second Dialogue if Interacted With
         {
-            dialogueManager.StartStory(inkJSONSecondDialogue, dialogueTitle);
+            dialogueManager.StartStory(inkJSONSecondDialogue);
         }
         else // Plays Primary Dialogue if First Time
         {
-            dialogueManager.StartStory(inkJSONMainDialogue, dialogueTitle);
+            dialogueManager.StartStory(inkJSONMainDialogue);
             interacted = true;
         }
     }

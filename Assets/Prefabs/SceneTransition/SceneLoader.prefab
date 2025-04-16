@@ -268,5 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1738f0632745e4fa72ba9946628c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 8481742652887108728}
+  WipeTransition: {fileID: 0}
+  FadeTransition: {fileID: 0}
   transitionDuration: 1
