@@ -140,6 +140,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2128581459506340888, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      propertyPath: m_Name
+      value: ScreenWipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128581459506340888, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
@@ -191,6 +195,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5089475501716048654, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089475501716048654, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089475501716048654, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8016598377229917492, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_Name
       value: SceneLoader
@@ -201,6 +217,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8016598377229917492, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481742652887108728, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -218,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 17619356}
   - component: {fileID: 17619357}
+  - component: {fileID: 17619358}
   m_Layer: 0
   m_Name: CutsceneManager
   m_TagString: Untagged
@@ -249,16 +270,38 @@ PlayableDirector:
   m_GameObject: {fileID: 17619354}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
-  m_InitialState: 1
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: -861714170670870048, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
-    value: {fileID: 996156908}
+  - key: {fileID: 6882099818849738873, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2596496374365973528, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
+    value: {fileID: 186008489}
+  - key: {fileID: 6882099818849738873, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2596496374365973528, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
+    value: {fileID: 186008489}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &17619358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17619354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed4df6349c7248478b621432228cfc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueCanvas: {fileID: 116925076}
+  cutsceneList:
+  - {fileID: 11400000, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
+  - {fileID: 11400000, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
 --- !u!4 &75548525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4536099641571713977, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
@@ -557,6 +600,17 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &464358949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2013186982132680556, guid: 59c72a878f0bde544805a13ca7d073ad, type: 3}
+  m_PrefabInstance: {fileID: 1741005210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &546274117
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &996156909
 Animator:
   serializedVersion: 7
@@ -742,7 +796,7 @@ Animator:
   m_GameObject: {fileID: 996156908}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63aed0d40f729324c93e4928afb2c56b, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8992995580fef94099f92cc5c5e997e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1108,6 +1162,73 @@ Transform:
   - {fileID: 1116581644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1456165544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1456165547}
+  - component: {fileID: 1456165546}
+  - component: {fileID: 1456165545}
+  m_Layer: 0
+  m_Name: IntroCutsceneTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1456165545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456165544}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1456165546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456165544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185fb2f5ea15c7942b2f7ffde4786b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSONCutsceneDialogue: {fileID: 4900000, guid: 86a53aaa437ad9146b3a1eeff0304b44, type: 3}
+--- !u!4 &1456165547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456165544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1462027132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,9 +1585,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 116925076}
     - target: {fileID: 1985041265043516261, guid: 59c72a878f0bde544805a13ca7d073ad, type: 3}
+      propertyPath: SpeakerText
+      value: 
+      objectReference: {fileID: 464358949}
+    - target: {fileID: 1985041265043516261, guid: 59c72a878f0bde544805a13ca7d073ad, type: 3}
       propertyPath: ChoiceContainer
       value: 
       objectReference: {fileID: 1869516106}
+    - target: {fileID: 1985041265043516261, guid: 59c72a878f0bde544805a13ca7d073ad, type: 3}
+      propertyPath: cutsceneManager
+      value: 
+      objectReference: {fileID: 17619358}
     - target: {fileID: 2013186982132680556, guid: 59c72a878f0bde544805a13ca7d073ad, type: 3}
       propertyPath: m_text
       value: 
@@ -1752,8 +1881,9 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1462027133}
+  - {fileID: 1424591724}
   - {fileID: 996156913}
+  - {fileID: 1462027133}
   - {fileID: 1761010786}
   - {fileID: 1505771920}
-  - {fileID: 1424591724}
+  - {fileID: 1456165547}

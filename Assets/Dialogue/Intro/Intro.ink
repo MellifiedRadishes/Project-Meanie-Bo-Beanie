@@ -1,6 +1,8 @@
 INCLUDE ../Global.ink
+~ PlayCutscene(0)
 ~ ChangeSpeaker("SCOUT")
 - Meanie? Are you up yet?
+~ PlayCutscene(1)
 - C’mon, Meanie! We’ve got Wally’s birthday party today, remember?
 ~ ChangeSpeaker("")
 - Meanie needs your help to make decisions! What should she say?

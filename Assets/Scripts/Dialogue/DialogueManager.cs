@@ -10,9 +10,12 @@ public class DialogueManager : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
 
     // Dialogue Objects
-    [SerializeField] private GameObject DialogueBox = null;
-    [SerializeField] private GameObject ChoiceContainer = null;
-    [SerializeField] private TextMeshProUGUI TextObject = null;
+    [SerializeField] private GameObject DialogueBox;
+    
+    [SerializeField] private GameObject ChoiceContainer;
+    [SerializeField] private TextMeshProUGUI SpeakerText;
+    [SerializeField] private TextMeshProUGUI TextObject;
+    [SerializeField] private CutsceneManager cutsceneManager;
 
     // Functions
     private InkDialogueFunctions ExternalFunctions;
@@ -25,7 +28,7 @@ public class DialogueManager : MonoBehaviour {
     private PlayerMovementScript playerMovement;
 
     // Dialogue State Variables
-    private bool choicePoint;
+    private bool PauseDialogue;
 
     private void Awake()
     {
@@ -37,7 +40,7 @@ public class DialogueManager : MonoBehaviour {
     private void Update()
     {
         if (story != null) { // Refreshes text on input
-			if (Input.GetMouseButtonDown(0) && !choicePoint) {
+			if (Input.GetMouseButtonDown(0) && !PauseDialogue) {
 				RefreshView();
             }
 		}
@@ -49,7 +52,7 @@ public class DialogueManager : MonoBehaviour {
 		story = new Story (dialogue.text);
         if (OnCreateStory != null) OnCreateStory(story);
         ToggleDialogueBox(true);
-        ExternalFunctions.Bind(story);
+        ExternalFunctions.Bind(story, this, SpeakerText, cutsceneManager);
         RefreshView();
     }
 
@@ -84,7 +87,7 @@ public class DialogueManager : MonoBehaviour {
         if (story.currentChoices.Count > 0)
         {
             // Set flag to indicate choice point
-            choicePoint = true;
+            PauseDialogue = true;
             for (int i = 0; i < story.currentChoices.Count; i++)
             {
                 // Create a button for each choice
@@ -106,7 +109,7 @@ public class DialogueManager : MonoBehaviour {
     /*====BUTTON FUNCTIONS====*/
     void OnClickChoiceButton(Choice choice)
     {
-        choicePoint = false; // Resets choice point flag
+        PauseDialogue = false; // Resets choice point flag
         story.ChooseChoiceIndex(choice.index);
         story.Continue(); //Skips displaying player's choice
         RefreshView();
@@ -122,10 +125,6 @@ public class DialogueManager : MonoBehaviour {
         Text choiceText = choice.GetComponentInChildren<Text>();
         choiceText.text = text;
 
-        // Make the button expand to fit the text
-        HorizontalLayoutGroup layoutGroup = choice.GetComponent<HorizontalLayoutGroup>();
-        layoutGroup.childForceExpandHeight = false;
-
         return choice;
     }
 
@@ -137,6 +136,10 @@ public class DialogueManager : MonoBehaviour {
         {
             Destroy(ChoiceContainer.transform.GetChild(i).gameObject);
         }
+    }
+
+    public void SetPausedDialogue(bool boolean) { 
+        PauseDialogue = boolean;
     }
 
 }

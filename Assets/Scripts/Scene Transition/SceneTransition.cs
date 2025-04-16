@@ -22,6 +22,7 @@ public class SceneTransition : MonoBehaviour
 
     void Start()
     {
+        WipeTransition.gameObject.SetActive(true);
         PersistentObjects = GameObject.Find("PERSISTENTOBJECTS").GetComponent<PersistentObject>();
         Player = GameObject.Find("Player");
         PlayerCharacterController = GameObject.Find("Player").GetComponent<CharacterController>();
@@ -56,7 +57,7 @@ public class SceneTransition : MonoBehaviour
 
     /*====COROUTINES FOR SCENE TRANSITIONS====*/
     IEnumerator ToggleCombat(SCENE scene, Boolean poEnable) {
-
+        
         PlayerMovement.SetCutscene(true); // Stop Player Movement
         WipeTransition.SetTrigger("HIDE"); // Hide Current Scene
 

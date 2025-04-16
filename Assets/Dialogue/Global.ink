@@ -1,2 +1,2 @@
 EXTERNAL ChangeSpeaker(name)
-EXTERNAL PlayCutscene()
+EXTERNAL PlayCutscene(cutsceneIndex)

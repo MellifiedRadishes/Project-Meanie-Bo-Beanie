@@ -5,16 +5,17 @@ using TMPro;
 public class InkDialogueFunctions
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Bind(Story story)
+    public void Bind(Story story, DialogueManager manager, TextMeshProUGUI speakerText, CutsceneManager cutsceneManager)
     {
         
         story.BindExternalFunction("ChangeSpeaker", (string name) =>
         {
-            GameObject.Find("SpeakerText").GetComponent<TextMeshProUGUI>().text = name;
+            speakerText.text = name;
         });
-        story.BindExternalFunction("PlayCutscene", () =>
+        story.BindExternalFunction("PlayCutscene", (int index) =>
         {
-            Debug.Log("cutscene");
+            manager.SetPausedDialogue(true);
+            cutsceneManager.PlayCutscene(index);
         });
     }
 
