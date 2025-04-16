@@ -295,7 +295,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 17619354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ed4df6349c7248478b621432228cfc8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c2e20836f9a514459674e6bb08a81c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueCanvas: {fileID: 116925076}
@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1456165544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 185fb2f5ea15c7942b2f7ffde4786b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 422aa142b1beb544ebab3d9cc02fe27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSONCutsceneDialogue: {fileID: 4900000, guid: 86a53aaa437ad9146b3a1eeff0304b44, type: 3}
