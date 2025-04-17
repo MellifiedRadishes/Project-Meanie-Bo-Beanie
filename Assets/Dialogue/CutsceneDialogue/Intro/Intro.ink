@@ -1,4 +1,4 @@
-INCLUDE ../Global.ink
+INCLUDE ../../Global.ink
 ~ PlayCutscene(0)
 ~ ChangeSpeaker("SCOUT")
 - Meanie? Are you up yet?

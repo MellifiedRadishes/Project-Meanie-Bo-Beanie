@@ -28,7 +28,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(player.transform.position, this.transform.position) < 2){
+        if (Vector3.Distance(player.transform.position, this.transform.position) < 1){
             if (playerMovement.GetCutscene()) {
                 return;
             }
@@ -52,7 +52,7 @@ public class DialogueTrigger : MonoBehaviour
     void StartDialogue() {
         FlipCharacter();
         playerMovement.SetCutscene(true);
-        if (interacted) // Plays Second Dialogue if Interacted With
+        if (inkJSONSecondDialogue != null && interacted) // Plays Second Dialogue if Interacted With
         {
             dialogueManager.StartStory(inkJSONSecondDialogue);
         }
