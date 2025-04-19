@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -275}
+  m_AnchoredPosition: {x: 0, y: -175}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31093266
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 222854993}
   - component: {fileID: 222854992}
   m_Layer: 5
-  m_Name: Attack2
+  m_Name: Attack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,7 +684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 150}
   m_SizeDelta: {x: 400, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &222854992
@@ -733,7 +733,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1036730067}
         m_TargetAssemblyTypeName: Combat, Assembly-CSharp
-        m_MethodName: AttackButton2Press
+        m_MethodName: AttackButton1Press
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1129,8 +1129,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -387.5, y: 0}
-  m_SizeDelta: {x: -825, y: -50}
+  m_AnchoredPosition: {x: -387.5, y: -87.5}
+  m_SizeDelta: {x: -825, y: -225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386470274
 MonoBehaviour:
@@ -1284,8 +1284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -387.5, y: 0}
-  m_SizeDelta: {x: -825, y: -50}
+  m_AnchoredPosition: {x: -387.5, y: -87.5}
+  m_SizeDelta: {x: -825, y: -225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &462996938
 MonoBehaviour:
@@ -1682,7 +1682,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ATTACK
+  m_Text: Tease
 --- !u!222 &587263737
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1940,7 +1940,7 @@ GameObject:
   - component: {fileID: 710196658}
   - component: {fileID: 710196657}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: ActText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1987,7 +1987,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 46
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1998,7 +1998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ATTACK
+  m_Text: ' ATTACK'
 --- !u!222 &710196658
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2006,6 +2006,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710196655}
+  m_CullTransparentMesh: 1
+--- !u!1 &714379280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 714379281}
+  - component: {fileID: 714379283}
+  - component: {fileID: 714379282}
+  m_Layer: 5
+  m_Name: BlockerPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &714379281
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714379280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2004272901}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -308}
+  m_SizeDelta: {x: 120, y: -320}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &714379282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714379280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &714379283
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714379280}
   m_CullTransparentMesh: 1
 --- !u!1 &759957571
 GameObject:
@@ -2467,7 +2542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -275}
+  m_AnchoredPosition: {x: 0, y: -175}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &889265182
@@ -2833,8 +2908,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
-  m_SizeDelta: {x: 400, y: 450}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 400, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984747337
 MonoBehaviour:
@@ -3074,6 +3149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af31f519231bc845a6f5624c8da5278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputBlockerPanel: {fileID: 714379280}
   playerMaxHP: 0
   playerCurrHP: 0
   PlayerCurrBar: {fileID: 498844809}
@@ -3083,6 +3159,7 @@ MonoBehaviour:
   playerIsWeakened: 0
   playerIsBuffed: 0
   sliderBarPrefab: {fileID: 8754314411166676855, guid: cc2aeb22a8d8bb14bacc52baec7f553f, type: 3}
+  enemyDescriptionText: {fileID: 710196657}
   isPlayerTurn: 0
   hitLogs: 000000000000000000000000
   barPrefab: {fileID: 0}
@@ -3272,7 +3349,7 @@ GameObject:
   - component: {fileID: 1096994936}
   - component: {fileID: 1096994935}
   m_Layer: 5
-  m_Name: Attack4
+  m_Name: Attack3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3295,7 +3372,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 400, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096994935
@@ -3342,10 +3419,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1036730067}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: AttackButton3Press
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2004272902}
         m_TargetAssemblyTypeName: CombatMenu, Assembly-CSharp
-        m_MethodName: Test
-        m_Mode: 1
+        m_MethodName: goToMenu
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3837,7 +3926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.50001, y: -337.5}
+  m_AnchoredPosition: {x: 0.50001, y: -337.50018}
   m_SizeDelta: {x: 405, y: 675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319669031
@@ -4283,7 +4372,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ATTACK
+  m_Text: Hug
 --- !u!222 &1425963187
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4329,8 +4418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -322.5}
-  m_SizeDelta: {x: 406, y: 445}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 406, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1454729822
 MonoBehaviour:
@@ -4644,7 +4733,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ATTACK
+  m_Text: Push
 --- !u!222 &1518271759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5034,7 +5123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -275}
+  m_AnchoredPosition: {x: 0, y: -175}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1744412704
@@ -5498,6 +5587,7 @@ RectTransform:
   - {fileID: 462996937}
   - {fileID: 215283843}
   - {fileID: 114913301}
+  - {fileID: 714379281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5558,8 +5648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -387.5, y: 0}
-  m_SizeDelta: {x: -825, y: -50}
+  m_AnchoredPosition: {x: -387.5, y: -87.5}
+  m_SizeDelta: {x: -825, y: -225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011616062
 MonoBehaviour:
@@ -5700,7 +5790,7 @@ GameObject:
   - component: {fileID: 2116930404}
   - component: {fileID: 2116930403}
   m_Layer: 5
-  m_Name: Attack3
+  m_Name: Attack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5723,7 +5813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 400, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116930403
@@ -5772,7 +5862,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1036730067}
         m_TargetAssemblyTypeName: Combat, Assembly-CSharp
-        m_MethodName: AttackButton3Press
+        m_MethodName: AttackButton2Press
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -30,6 +30,8 @@ public class Combat : MonoBehaviour
 
     //[SerializeField] private bool IsPlayerTurn;
 
+    public GameObject inputBlockerPanel;
+
     [SerializeField] private int playerMaxHP;
     [SerializeField] private int playerCurrHP;
     public UnityEngine.UI.Image PlayerCurrBar;
@@ -41,6 +43,7 @@ public class Combat : MonoBehaviour
     [SerializeField] private bool playerIsBuffed;
 
     [SerializeField] private GameObject sliderBarPrefab;
+    [SerializeField] private Text enemyDescriptionText;
     private AttackBarController[] activeAttackBarControllers = new AttackBarController[3];
 
 
@@ -54,8 +57,8 @@ public class Combat : MonoBehaviour
     public static EnemyAction bba1 = new EnemyAction("Push", EnemyActionType.ATTACK, 5);
     public static EnemyAction bba2 = new EnemyAction("Slap", EnemyActionType.ATTACK, 8);
     public static EnemyAction bba3 = new EnemyAction("Condemn", EnemyActionType.WEAKEN, 0);
-    public Enemy Buck = new Enemy("Buck", 30, ba1, ba2, ba3, "This mf is Buck");
-    public Enemy Otter = new Enemy("Bibbleboo", 40, bba1, bba2, bba3, "This mf is Bibbleboo");
+    public Enemy Buck = new Enemy("Buck", 30, ba1, ba2, ba3, "Buck the Buck is the friendly neighborhood baker, and the owner of Doenuts. His baking is legendary; if he gets low on health, he might just grab a pastry and heal himself back up!");
+    public Enemy Otter = new Enemy("Bibbleboo", 40, bba1, bba2, bba3, "Bibbleboo is one of Meanie's best friends. She's a little shy. If Meanie thinks too hard about it, she might lose her fighting spirit and get a debuff...");
 
     //flow
     CombatState currentState;
@@ -83,6 +86,23 @@ public class Combat : MonoBehaviour
         //flow logic
         //isPlayerTurn = true;
         currentState = CombatState.PlayerTurn;  
+    }
+
+    void SetupBattle()
+    {
+        SetInputBlocked(false);
+        
+        enemyArray[0] = Buck;
+        enemyArray[1] = Otter;
+
+        enemyDescriptionText.text = enemyArray[GameCombatNumb].CombatInfo;
+        playerMaxHP = 25;
+        playerCurrHP = playerMaxHP;
+        PlayerCurrBar.fillAmount = (float)playerCurrHP / (float)playerMaxHP;
+
+        enemyMaxHP = enemyArray[GameCombatNumb].HP;
+        enemyCurrHP = enemyMaxHP;
+        EnemyCurrBar.fillAmount = (float)enemyCurrHP / (float)enemyMaxHP;
     }
 
     private void Update() 
@@ -122,21 +142,12 @@ public class Combat : MonoBehaviour
     public static void SetTempSliderRead(int i) => tempSliderRead = i;
 
 
-    void SetupBattle()
+    
+
+    void SetInputBlocked(bool isBlocked)
     {
-        enemyArray[0] = Buck;
-        enemyArray[1] = Otter;
-
-
-        playerMaxHP = 25;
-        playerCurrHP = playerMaxHP;
-        PlayerCurrBar.fillAmount = (float)playerCurrHP / (float)playerMaxHP;
-
-        enemyMaxHP = enemyArray[GameCombatNumb].HP;
-        enemyCurrHP = enemyMaxHP;
-        EnemyCurrBar.fillAmount = (float)enemyCurrHP / (float)enemyMaxHP;
+        inputBlockerPanel.SetActive(isBlocked);
     }
-
 
     //button calls
     public void DoPlayerAttack(PlayerAttack chosenAttack)
@@ -185,7 +196,7 @@ public class Combat : MonoBehaviour
                 crit = 1;
             }
         }
-
+        SetInputBlocked(true);
         StartCoroutine(WaitForSlider(damage, crit, amount));
     }
 
@@ -231,22 +242,28 @@ public class Combat : MonoBehaviour
             }
             
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
+        isPlayerTurn = false;
+        StartCoroutine(EnemyTurn());
     }
 
-    public void EnemyTurn()
+    IEnumerator EnemyTurn()
     {
-        int moveNumber = Random.Range(0, 2);
+        Debug.Log(enemyArray[GameCombatNumb].Name);
+
+        int moveNumber = Random.Range(0, 3);
         int numbMod = 0;
         EnemyActionType tempType = enemyArray[GameCombatNumb].actionArray[moveNumber].Type;
 
         if (enemyArray[GameCombatNumb].isWeakened == true) 
         {
             numbMod -= 4;
+            enemyArray[GameCombatNumb].isWeakened = false;
         }
         if (enemyArray[GameCombatNumb].isBuffed == true) 
         {
             numbMod += 4;
+            enemyArray[GameCombatNumb].isBuffed = false;
         }
 
 
@@ -255,34 +272,37 @@ public class Combat : MonoBehaviour
             //animation
             //print enemyArray[GameCombatNumb].actionArray[moveNumber].Value + numbMod on screen
             playerCurrHP -= enemyArray[GameCombatNumb].actionArray[moveNumber].Value + numbMod;
-        } else if (tempType == EnemyActionType.HEAL) {
+            PlayerCurrBar.fillAmount = (float)playerCurrHP / (float)playerMaxHP;
+            Debug.Log("Did " + (enemyArray[GameCombatNumb].actionArray[moveNumber].Value + numbMod) + " damage");
+        }
+        else if (tempType == EnemyActionType.HEAL)
+        {
             //animation
             //print enemyArray[GameCombatNumb].actionArray[moveNumber].Value  on screen
             enemyCurrHP += enemyArray[GameCombatNumb].actionArray[moveNumber].Value;
             if (enemyCurrHP < 0)
             {
                 enemyCurrHP = 0;
-            }
-        }
 
+            }
+            EnemyCurrBar.fillAmount = (float)enemyCurrHP / (float)enemyMaxHP;
+            Debug.Log("Healed " + enemyArray[GameCombatNumb].actionArray[moveNumber].Value + " health");
+        }
         else if (tempType == EnemyActionType.WEAKEN)
         {
-
-        }
-
-
-            //yield return new WaitForSeconds(1f);
-
-            if (playerCurrHP <= 0)
-        {
-
-        }
+            playerIsWeakened = true;
+            Debug.Log("player weakened");
+        } 
         else
         {
-
+            enemyArray[GameCombatNumb].isBuffed = true;
+            Debug.Log("enemy buffed");
         }
 
-
+ 
+        yield return new WaitForSeconds(3f);
+        Debug.Log("your turn");
+        SetInputBlocked(false);
     }
 
     public void GoToWin()
