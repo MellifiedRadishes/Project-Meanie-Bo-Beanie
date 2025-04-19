@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 
 public class CutsceneManager : MonoBehaviour
 {
+    private PlayerMovementScript PlayerMovement;
     [SerializeField] GameObject DialogueCanvas;
     private DialogueManager dialogueManager;
 
@@ -19,6 +20,7 @@ public class CutsceneManager : MonoBehaviour
     {
         Director = GetComponent<PlayableDirector>();
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        PlayerMovement = GameObject.Find("Player").GetComponent<PlayerMovementScript>();
         CreateCutsceneDictionary();
     }
 
@@ -32,17 +34,26 @@ public class CutsceneManager : MonoBehaviour
         
         foreach (var cutscene in cutsceneList)
         {
-            Debug.Log("ADDING: " + cutscene.GetCutsceneName() + " + " + cutscene.GetCutscenePlayable());
             CutsceneDictionary.Add(cutscene.GetCutsceneName(), cutscene.GetCutscenePlayable());
         }
     
     }
 
     public void PlayCutscene(string name) {
+        
         CutsceneDictionary.TryGetValue(name, out PlayableAsset cutscene);
         Director.playableAsset = cutscene;
         Director.Play();
-        StartCoroutine(HideDialogueCanvas((float) Director.playableAsset.duration));
+
+        if (!PlayerMovement.GetCutscene())
+        {
+            StartCoroutine(DisablePlayerMovement((float)Director.playableAsset.duration));
+        }
+        
+        if (DialogueCanvas.activeSelf) {
+            StartCoroutine(HideDialogueCanvas((float)Director.playableAsset.duration));
+        }
+        
     }
 
     IEnumerator HideDialogueCanvas(float seconds) { 
@@ -53,6 +64,15 @@ public class CutsceneManager : MonoBehaviour
         DialogueCanvas.SetActive(true);
 
         dialogueManager.SetPausedDialogue(false);
+    }
+
+    IEnumerator DisablePlayerMovement(float seconds)
+    {
+        PlayerMovement.SetCutscene(true); // Stop Player Movement
+
+        yield return new WaitForSeconds(seconds);
+
+        PlayerMovement.SetCutscene(false); // Reactivate Player Movement
     }
 }
 

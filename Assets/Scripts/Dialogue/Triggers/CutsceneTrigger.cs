@@ -19,8 +19,11 @@ public class CutsceneTrigger : MonoBehaviour
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
+        if (playerMovement.GetCutscene()) {
+            return;
+        }
         if (other.name == "Player")
         {
             playerMovement.SetCutscene(true);

@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 863771652999729856, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2128581459506340888, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_Name
@@ -154,7 +154,15 @@ PrefabInstance:
     - target: {fileID: 3027066235507216022, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: WipeTransition
       value: 
-      objectReference: {fileID: 1371080158}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027066235507216022, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      propertyPath: cutsceneManager
+      value: 
+      objectReference: {fileID: 17619358}
+    - target: {fileID: 3027066235507216022, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      propertyPath: _cutsceneManager
+      value: 
+      objectReference: {fileID: 17619358}
     - target: {fileID: 4536099641571713977, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.6965096
@@ -224,8 +232,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 863771652999729856, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4536099641571713977, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 996156913}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
 --- !u!1 &17619354
@@ -270,7 +282,7 @@ PlayableDirector:
   m_GameObject: {fileID: 17619354}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: c8415333ce8755a4a8a5180a89a92b7b, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -283,6 +295,8 @@ PlayableDirector:
   - key: {fileID: 6882099818849738873, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
     value: {fileID: 0}
   - key: {fileID: 2596496374365973528, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
+    value: {fileID: 186008489}
+  - key: {fileID: -8700457508437788862, guid: c8415333ce8755a4a8a5180a89a92b7b, type: 2}
     value: {fileID: 186008489}
   m_ExposedReferences:
     m_References: []
@@ -304,6 +318,8 @@ MonoBehaviour:
     cutscene: {fileID: 11400000, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
   - name: WakeUpScene
     cutscene: {fileID: 11400000, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
+  - name: SceneFadeTransition
+    cutscene: {fileID: 11400000, guid: c8415333ce8755a4a8a5180a89a92b7b, type: 2}
 --- !u!1001 &58395225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 120386204229246536, guid: f949a269f58d04042a1eda1da2e744e2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775223745485657651, guid: f949a269f58d04042a1eda1da2e744e2, type: 3}
+      propertyPath: InCutscene
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7423036739441871088, guid: f949a269f58d04042a1eda1da2e744e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -591,7 +611,7 @@ GameObject:
   - component: {fileID: 996156910}
   - component: {fileID: 996156909}
   m_Layer: 0
-  m_Name: FadeTransition
+  m_Name: TransitionCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,7 +625,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996156908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d8992995580fef94099f92cc5c5e997e, type: 2}
   m_CullingMode: 0
@@ -695,7 +715,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 186008488}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 75548525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -815,11 +835,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8847187502448868377, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
   m_PrefabInstance: {fileID: 126636041}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1371080158 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8481742652887108728, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
-  m_PrefabInstance: {fileID: 9821618}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1424591723
 GameObject:
@@ -1395,7 +1410,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1424591724}
-  - {fileID: 996156913}
   - {fileID: 1462027133}
   - {fileID: 1761010786}
   - {fileID: 1505771920}
