@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     [SerializeField] private CutsceneManager cutsceneManager;
+    [SerializeField] private GameManager gameManager;
     public static SceneTransition instance;
 
     /*====ANIMATION VARIABLES====*/
@@ -64,6 +65,7 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadScene((int) scene);
 
         // Temporarily Deactive
+        gameManager.CheckCutsceneTriggers();
         PersistentObjects.ToggleChildren(poEnable);
     }
 
@@ -74,6 +76,8 @@ public class SceneTransition : MonoBehaviour
         yield return new WaitForSeconds(transitionDuration);
 
         SceneManager.LoadScene((int)scene);
+
+        gameManager.CheckCutsceneTriggers();
 
         // Force Change Player Position
         PlayerCharacterController.enabled = false;
