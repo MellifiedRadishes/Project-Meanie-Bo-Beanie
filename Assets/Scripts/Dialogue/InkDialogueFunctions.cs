@@ -12,10 +12,10 @@ public class InkDialogueFunctions
         {
             speakerText.text = name;
         });
-        story.BindExternalFunction("PlayCutscene", (int index) =>
+        story.BindExternalFunction("PlayCutscene", (string cutsceneName) =>
         {
             manager.SetPausedDialogue(true);
-            cutsceneManager.PlayCutscene(index);
+            cutsceneManager.PlayCutscene(cutsceneName);
         });
     }
 
