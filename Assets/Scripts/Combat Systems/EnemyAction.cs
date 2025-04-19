@@ -4,9 +4,9 @@ public class EnemyAction
 {
     [SerializeField] public string Name;
     [SerializeField] public EnemyActionType Type;
-    [SerializeField] public float Value;
+    [SerializeField] public int Value;
 
-    public EnemyAction(string name, EnemyActionType type, float val)
+    public EnemyAction(string name, EnemyActionType type, int val)
     {
         Name = name;
         Type = type;
