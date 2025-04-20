@@ -455,7 +455,7 @@ MonoBehaviour:
   attackBar: {fileID: 1643236107}
   sliderBar: {fileID: 1028293917}
   greenBar: {fileID: 844558953}
-  criticalBar: {fileID: 2084311815}
+  critBar: {fileID: 2084311815}
   speed: 75
 --- !u!212 &1028293919
 SpriteRenderer:

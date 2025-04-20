@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class DialogueManager : MonoBehaviour {
 
+    [SerializeField] private TextAsset globalsJSON;
     public Story story;
     public static event Action<Story> OnCreateStory;
 
@@ -16,10 +18,11 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI SpeakerText;
     [SerializeField] private TextMeshProUGUI TextObject;
     [SerializeField] private CutsceneManager cutsceneManager;
+    [SerializeField] private GameManager gameManager;
 
     // Functions
     private InkDialogueFunctions ExternalFunctions;
-    
+    private DialogueVariables dialogueVariables;
     // Button Prefab
     [SerializeField] private Button buttonPrefab = null;
 
@@ -33,6 +36,7 @@ public class DialogueManager : MonoBehaviour {
     private void Awake()
     {
         ExternalFunctions = new InkDialogueFunctions();
+        dialogueVariables = new DialogueVariables(globalsJSON);
         player = GameObject.Find("Player");
         playerMovement = player.GetComponent<PlayerMovementScript>();
     }
@@ -49,10 +53,18 @@ public class DialogueManager : MonoBehaviour {
 
     // Creates a new Story object and starts
     public void StartStory (TextAsset dialogue) {
+        
 		story = new Story (dialogue.text);
         if (OnCreateStory != null) OnCreateStory(story);
+
+        story.variablesState["current_story_point"] = (int) gameManager.GetStoryPoint();
+        story.variablesState["dialogue_state"] = gameManager.GetDialogueState(dialogue.name);
+
         ToggleDialogueBox(true);
-        ExternalFunctions.Bind(story, this, SpeakerText, cutsceneManager);
+
+        dialogueVariables.StartListening(story);
+        ExternalFunctions.Bind(story, dialogue, SpeakerText, this, cutsceneManager, gameManager);
+
         RefreshView();
     }
 
@@ -61,7 +73,10 @@ public class DialogueManager : MonoBehaviour {
         // If the story cannot continue and there are no choices, end dialogue
         ToggleDialogueBox(false);
         playerMovement.SetCutscene(false);
+
+        dialogueVariables.StopListening(story);
         ExternalFunctions.Unbind(story);
+
         story = null;
     }
 
@@ -102,10 +117,6 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    void ToggleDialogueBox(Boolean active) {
-        DialogueBox.SetActive(active); 
-    }
-
     /*====BUTTON FUNCTIONS====*/
     void OnClickChoiceButton(Choice choice)
     {
@@ -138,8 +149,29 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
+    /*====DIALOGUE PAUSING====*/
     public void SetPausedDialogue(bool boolean) { 
         PauseDialogue = boolean;
+    }
+
+    void ToggleDialogueBox(Boolean active)
+    {
+        DialogueBox.SetActive(active);
+    }
+
+
+    /*====GETTER FUNCTIONS====*/
+
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+        return variableValue;
+       
+    }
+
+    public bool CanStoryContinue() { 
+        return story.canContinue;
     }
 
 }

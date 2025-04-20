@@ -13,8 +13,10 @@ public class SceneTransitionFlag : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player") {
-            SceneLoader.TriggerSceneChange(scene, newPosition);
+        if (this.enabled && other.name == "Player") {
+             SceneLoader.TriggerSceneChange(scene, newPosition);
         }
     }
 }
+
+
