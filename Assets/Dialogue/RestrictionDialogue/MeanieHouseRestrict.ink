@@ -11,6 +11,6 @@ INCLUDE ../Global.ink
 
 ====pre_doenuts====
 Where are you going?
-~ PlayCutscene("BarrierAvoidRight")
+~ PlayCutscene("BarrierAvoidEast")
 You can’t be tired already! You just got out of bed!
 -> END

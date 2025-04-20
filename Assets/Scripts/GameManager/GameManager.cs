@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     
     STORYPOINT currentStorypoint = STORYPOINT.WakeUp;
     Dictionary<string, bool> CutsceneTriggersActive = new Dictionary<string, bool>();
+    Dictionary<string, int> DialogueVisited = new Dictionary<string, int>();
     void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -16,8 +17,10 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         CheckCutsceneTriggers();
+        CheckDialogueStates();
     }
 
+    /*====CUTSCENE TRIGGER ACTIVATION====*/
     public void CheckCutsceneTriggers() {
         GameObject TriggersParentObject = GameObject.Find("CUTSCENETRIGGERS");
         if (TriggersParentObject != null) {
@@ -39,10 +42,49 @@ public class GameManager : MonoBehaviour
     public void DisableTrigger(string triggerName)
     {
         if (!CutsceneTriggersActive.ContainsKey(triggerName)) {
-            Debug.Log("ERROR: Cannot disable CutsceneTrigger that does not exist");
+            Debug.Log("ERROR: CUTSCENE TRIGGER " + triggerName + " DOES NOT EXIST");
         }
         CutsceneTriggersActive[triggerName] = false;
     }
+
+    /*====DIALOGUE STATE STORAGE====*/
+    public void CheckDialogueStates()
+    {
+        
+        GameObject CharactersParentObject = GameObject.Find("CHARACTERS");
+        if (CharactersParentObject != null)
+        {
+            foreach (Transform child in CharactersParentObject.transform)
+            {
+                string dialogueName = child.gameObject.GetComponent<DialogueTrigger>().GetDialogueFile().name;
+                if (!DialogueVisited.ContainsKey(dialogueName))
+                {
+                    DialogueVisited.Add(dialogueName, 0);
+                }
+            }
+        }
+    }
+
+    /*====DIALOGUE STATE SETTERS/GETTERS====*/
+
+    public void SetDialogueState(string dialogueName, int stateIndex)
+    {
+        if (!DialogueVisited.ContainsKey(dialogueName))
+        {
+            Debug.Log("ERROR: DIALOGUE " + dialogueName + " DOES NOT EXIST");
+        }
+        DialogueVisited[dialogueName] = stateIndex;
+    }
+
+    public int GetDialogueState(string dialogue)
+    {
+        if (DialogueVisited.ContainsKey(dialogue))
+        {
+            return DialogueVisited[dialogue];
+        }
+        return 0;
+    }
+
 
     /*====STORYPOINT SETTERS/GETTERS====*/
     public void SetStoryPoint(STORYPOINT point) {

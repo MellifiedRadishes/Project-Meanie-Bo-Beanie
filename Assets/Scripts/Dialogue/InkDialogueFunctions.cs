@@ -5,7 +5,7 @@ using TMPro;
 public class InkDialogueFunctions
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Bind(Story story, TextMeshProUGUI speakerText, DialogueManager dialogueManager,
+    public void Bind(Story story, TextAsset dialogueFile, TextMeshProUGUI speakerText, DialogueManager dialogueManager,
         CutsceneManager cutsceneManager, GameManager gameManager)
     {
         
@@ -22,6 +22,10 @@ public class InkDialogueFunctions
         {
             gameManager.SetStoryPoint((STORYPOINT) storypoint);
         });
+        story.BindExternalFunction("UpdateDialogueState", (int stateIndex) =>
+        {
+            gameManager.SetDialogueState(dialogueFile.name, stateIndex);
+        });
     }
 
     public void Unbind(Story story)
@@ -29,6 +33,7 @@ public class InkDialogueFunctions
         story.UnbindExternalFunction("ChangeSpeaker");
         story.UnbindExternalFunction("PlayCutscene");
         story.UnbindExternalFunction("ChangeStoryPoint");
+        story.UnbindExternalFunction("UpdateDialogueState");
     }
 
 }
