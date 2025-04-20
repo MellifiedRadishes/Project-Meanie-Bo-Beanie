@@ -1,9 +1,10 @@
 INCLUDE ../../Global.ink
 ~ChangeSpeaker("SCOUT")
+~ PlayCutscene("PostMurderKnock")
 Meanie? …Meanie, I know you’re in here.
 I’m coming in. It’s okay. You’re safe with me.
 I promise.
-~ PlayCutscene(0)
+~ PlayCutscene("ScoutEnterHouse")
 So… you, uh, you exploded Wally. That was unfortunate.
 But it’s okay! Accidents happen.
 Which is why I’m here to encourage you to turn yourself in.
