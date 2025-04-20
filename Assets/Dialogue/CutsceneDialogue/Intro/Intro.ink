@@ -21,6 +21,7 @@ Just… y’know, walk down that hallway. And open the door. Like you’ve done 
 Nice and simple, right?
 I’ll be waiting!
 ~ ChangeSpeaker("")
+~ ChangeStoryPoint(1)
 Press WASD to move and F to interact with objects!
 -> END
 

@@ -59,7 +59,7 @@ public class DialogueTrigger : MonoBehaviour
         else // Plays Primary Dialogue if First Time
         {
             dialogueManager.StartStory(inkJSONMainDialogue);
-            interacted = true;
+            //interacted = true;
         }
     }
 }

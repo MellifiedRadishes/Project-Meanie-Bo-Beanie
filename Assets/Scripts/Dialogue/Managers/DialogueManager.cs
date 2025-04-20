@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI SpeakerText;
     [SerializeField] private TextMeshProUGUI TextObject;
     [SerializeField] private CutsceneManager cutsceneManager;
+    [SerializeField] private GameManager gameManager;
 
     // Functions
     private InkDialogueFunctions ExternalFunctions;
@@ -54,10 +55,14 @@ public class DialogueManager : MonoBehaviour {
     public void StartStory (TextAsset dialogue) {
 		story = new Story (dialogue.text);
         if (OnCreateStory != null) OnCreateStory(story);
+
+        story.variablesState["current_story_point"] = (int) gameManager.GetStoryPoint();
+
+
         ToggleDialogueBox(true);
 
         dialogueVariables.StartListening(story);
-        ExternalFunctions.Bind(story, this, SpeakerText, cutsceneManager);
+        ExternalFunctions.Bind(story, SpeakerText, this, cutsceneManager, gameManager);
 
         RefreshView();
     }
@@ -157,6 +162,10 @@ public class DialogueManager : MonoBehaviour {
         dialogueVariables.variables.TryGetValue(variableName, out variableValue);
         return variableValue;
        
+    }
+
+    public bool CanStoryContinue() { 
+        return story.canContinue;
     }
 
 }

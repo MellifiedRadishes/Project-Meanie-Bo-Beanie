@@ -40,7 +40,6 @@ public class CutsceneManager : MonoBehaviour
     }
 
     public void PlayCutscene(string name) {
-        
         CutsceneDictionary.TryGetValue(name, out PlayableAsset cutscene);
         Director.playableAsset = cutscene;
         Director.Play();
@@ -49,20 +48,18 @@ public class CutsceneManager : MonoBehaviour
         {
             StartCoroutine(DisablePlayerMovement((float)Director.playableAsset.duration));
         }
-        
-        if (DialogueCanvas.activeSelf) {
+        if (DialogueCanvas.activeSelf && dialogueManager.CanStoryContinue()) {
             StartCoroutine(HideDialogueCanvas((float)Director.playableAsset.duration));
         }
         
     }
 
-    IEnumerator HideDialogueCanvas(float seconds) { 
+    IEnumerator HideDialogueCanvas(float seconds) {
         DialogueCanvas.SetActive(false);
 
         yield return new WaitForSeconds(seconds);
 
         DialogueCanvas.SetActive(true);
-
         dialogueManager.SetPausedDialogue(false);
     }
 

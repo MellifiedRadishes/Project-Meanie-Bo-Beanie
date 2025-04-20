@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    
+    STORYPOINT currentStorypoint = STORYPOINT.WakeUp;
     Dictionary<string, bool> CutsceneTriggersActive = new Dictionary<string, bool>();
     void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+        CheckCutsceneTriggers();
     }
 
     public void CheckCutsceneTriggers() {
@@ -43,9 +44,15 @@ public class GameManager : MonoBehaviour
         CutsceneTriggersActive[triggerName] = false;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    /*====STORYPOINT SETTERS/GETTERS====*/
+    public void SetStoryPoint(STORYPOINT point) {
+ 
+        currentStorypoint = point;
+    }
+
+    public STORYPOINT GetStoryPoint()
     {
-        CheckCutsceneTriggers();
+        return currentStorypoint;
     }
 
 }

@@ -80,8 +80,8 @@ public class SceneTransition : MonoBehaviour
         gameManager.CheckCutsceneTriggers();
 
         // Force Change Player Position
-        PlayerCharacterController.enabled = false;
+        //PlayerCharacterController.enabled = false;
         Player.transform.position = newPosition;
-        PlayerCharacterController.enabled = true;
+        //PlayerCharacterController.enabled = true;
     }
 }

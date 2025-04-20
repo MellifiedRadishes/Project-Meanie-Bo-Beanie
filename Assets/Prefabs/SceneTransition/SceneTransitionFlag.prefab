@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8847187502448868377}
   - component: {fileID: 8384929202163008958}
+  - component: {fileID: 6656587166135789091}
   - component: {fileID: 350778582471527113}
   m_Layer: 0
   m_Name: SceneTransitionFlag
@@ -48,6 +49,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: 0
   newPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &6656587166135789091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899229713923962911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca11319f9f1965940b2288184f984cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSONDialogue: {fileID: 0}
+  StorypointsToActivateTrigger: 
 --- !u!65 &350778582471527113
 BoxCollider:
   m_ObjectHideFlags: 0
