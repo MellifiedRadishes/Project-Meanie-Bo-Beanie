@@ -6,12 +6,12 @@ public class InventoryComponent : MonoBehaviour
 
     public void AddToInventory(string itemName, int amount, IEffect effect)
     {
-        inventorySystem.AddItem(itemName, amount, effect);
+        // inventorySystem.AddItem(itemName, amount, effect);
     }
 
     public void UseItem(string itemName, MeaniePlayer player)
     {
-        inventorySystem.UseItem(itemName, player);
+        // inventorySystem.UseItem(itemName, player);
     }
 
     public void ShowInventory()
