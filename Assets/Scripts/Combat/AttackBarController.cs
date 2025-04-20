@@ -63,8 +63,6 @@ public class AttackBarController : MonoBehaviour
 
     }
 
-    
-
     int CheckHit()
     {
         float center = greenBar.position.x; // Center of the green bar
