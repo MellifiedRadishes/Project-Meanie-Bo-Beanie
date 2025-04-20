@@ -12,6 +12,10 @@ public class PlayerMovementScript : MonoBehaviour
     private CharacterController Controller;
     private float VerticalInput;
     private float HortizontalInput;
+
+    private float lastVerticalInput;
+    private float lastHortizontalInput;
+
     public Boolean InCutscene;
 
     //Visuals
@@ -29,19 +33,23 @@ public class PlayerMovementScript : MonoBehaviour
     {
         VerticalInput = 0;
         HortizontalInput = 0;
-        if (!InCutscene) {
+        if (InCutscene)
+        {
+            Controller.enabled = false;
+        }
+        else
+        {
+            //Reads User Input
+            VerticalInput = Input.GetAxis("Vertical");
+            HortizontalInput = Input.GetAxis("Horizontal");
+            //Enables the Character Controller
+            Controller.enabled = true;
             Move();
         }
         UpdateModel();
     }
 
-
     private void Move() {
-
-        //Reads User Input
-        VerticalInput = Input.GetAxis("Vertical");
-        HortizontalInput = Input.GetAxis("Horizontal");
-
         //Calculates Player Gravity
         CalcGravity();
 
@@ -71,9 +79,9 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void ModelDirectionUpdate() {
         if (HortizontalInput > 0) {
-            model.transform.localScale = new Vector3(-.1f, .1f, .1f);
+            model.transform.rotation = Quaternion.Euler(0, -180, 0);
         } else if (HortizontalInput < 0) {
-            model.transform.localScale = new Vector3(.1f, .1f, .1f);
+            model.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
