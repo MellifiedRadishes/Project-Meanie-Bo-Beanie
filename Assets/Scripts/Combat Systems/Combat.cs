@@ -202,7 +202,7 @@ public class Combat : MonoBehaviour
 
     IEnumerator WaitForSlider(int dam, int crit, int amou)
     {
-
+    
         for (int i = 0; i < amou; i++)
         {
             activeAttackBarControllers[i] = Instantiate(sliderBarPrefab).GetComponentInChildren<AttackBarController>();
