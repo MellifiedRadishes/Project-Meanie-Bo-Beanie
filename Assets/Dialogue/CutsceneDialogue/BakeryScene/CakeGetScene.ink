@@ -2,6 +2,7 @@ INCLUDE ../../Global.ink
 ~ ChangeSpeaker("BUCK")
 Now that’s what I’m talking about! Got the adrenaline pumping and everything.
 Thanks for the practice. Here’s your cake– hope Wally likes it.
+~ PlayCutscene("CakeGet_" + cake_flavor)
 ~ ChangeSpeaker("SCOUT")
 Killer moves, Meanie! You’ve gotta teach me how to do that sometime.
 We should probably get going if we want to make it to the party in time.

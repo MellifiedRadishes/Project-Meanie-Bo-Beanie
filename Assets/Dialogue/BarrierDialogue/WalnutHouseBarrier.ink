@@ -14,13 +14,13 @@ INCLUDE ../Global.ink
 ====pre_doenuts====
 ~ ChangeSpeaker("SCOUT")
 Ah! Wait!
-~ PlayCutscene("BarrierAvoidSouth")
+~ PlayCutscene("CENTRAL_BarrierAvoidSouth")
 We should probably wait to go into Wally’s house until after we get the cake.
 -> END
 
 ====post_murder====
 ~ ChangeSpeaker("SCOUT")
 Meanie! What the heck are you doing?!
-~ PlayCutscene("BarrierAvoidSouth")
+~ PlayCutscene("CENTRAL_BarrierAvoidSouth")
 Are you insane?!
 -> END

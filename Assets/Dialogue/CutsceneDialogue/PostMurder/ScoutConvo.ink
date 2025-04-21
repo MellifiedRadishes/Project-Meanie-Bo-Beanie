@@ -32,11 +32,14 @@ Meanie, we’ve gotta get out of here! I won’t last a second in jail!
     -> converge2
 ==== converge2 ====
 Wally had some powerful friends! Dangerous friends!
-Between you and me, I’m pretty sure he was cooking meth at some point. He had the brains for it, the big nerd he was.
+Between you and me, I’m pretty sure he was cooking meth at some point. 
+He had the brains for it, the big nerd he was.
 Made bank from it, too! How else do you think he could’ve afforded three whole windows?!
 You’d make it through alright. I mean, you just killed somebody! You’re hardcore! I’m a big softie!!
-Okay, okay– okay okay. Don’t panic. We just need to get out of the country. Simple! Easy! Like– like a vacation!
-I… I know a guy who can get us to Canada. Give us new identities, new papers. Another chance at life.
+Okay, okay– okay okay. Don’t panic. We just need to get out of the country. Simple! 
+Easy! Like– like a vacation!
+I… I know a guy who can get us to Canada. 
+Give us new identities, new papers. Another chance at life.
 It’d be like we just… disappeared. And we REALLY need to disappear. I mean, what else can we do?
 So, what? Are you in? There’s no other way out of this.
     * "Yes"

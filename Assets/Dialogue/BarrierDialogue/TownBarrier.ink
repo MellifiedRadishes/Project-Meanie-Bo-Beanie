@@ -11,6 +11,6 @@ INCLUDE ../Global.ink
 
 ====post_murder====
 Where are you going?!
-~ PlayCutscene("BarrierAvoidWest")
+~ PlayCutscene("CENTRAL_BarrierAvoidWest")
 We've got to get out of here!
 -> END

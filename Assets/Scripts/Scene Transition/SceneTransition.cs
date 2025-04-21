@@ -18,7 +18,6 @@ public class SceneTransition : MonoBehaviour
 
     /*==Player Object/Scripts==*/
     private GameObject Player;
-    private GameObject Scout;
     private CharacterController PlayerCharacterController;
     
 
@@ -31,12 +30,12 @@ public class SceneTransition : MonoBehaviour
 
     }
     /*====FUNCTIONS TO TRIGGER SCENE TRANSITIONS====*/
-    void TriggerCombat()
+    public void TriggerCombat()
     {
         oldScene = (SCENE) SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(ToggleCombat(SCENE.COMBAT, false));
     }
-    void LeaveCombat()
+    public void LeaveCombat()
     {
         StartCoroutine(ToggleCombat(oldScene, true));
     }
@@ -47,20 +46,24 @@ public class SceneTransition : MonoBehaviour
     /*====COROUTINES FOR SCENE TRANSITIONS====*/
     IEnumerator ToggleCombat(SCENE scene, Boolean poEnable) {
        
-        cutsceneManager.PlayCutscene("SceneFadeTransition");
+        cutsceneManager.PlayCutscene("CENTRAL_SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
 
         SceneManager.LoadScene((int) scene);
 
+        if (!poEnable) {
+            cutsceneManager.PlayCutscene("DemoCombat");
+        }
+        
+
         // Temporarily Deactive
-        gameManager.CheckCutsceneTriggers();
         PersistentObjects.ToggleChildren(poEnable);
     }
 
     IEnumerator LoadMapScene(SCENE scene, Vector3 newPosition)
     {
-        cutsceneManager.PlayCutscene("SceneFadeTransition");
+        cutsceneManager.PlayCutscene("CENTRAL_SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
         SceneManager.LoadScene((int)scene);

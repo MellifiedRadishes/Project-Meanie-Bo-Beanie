@@ -12,6 +12,6 @@ INCLUDE ../Global.ink
 ====post_doenuts====
 ~ ChangeSpeaker("SCOUT")
 Hey! What are you doing?
-~ PlayCutscene("BarrierAvoidSouth")
+~ PlayCutscene("CENTRAL_BarrierAvoidSouth")
 We got everything we needed from Doenuts. Let's get to the party!
 -> END

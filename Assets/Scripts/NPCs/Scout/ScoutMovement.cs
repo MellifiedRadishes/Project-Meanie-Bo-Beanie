@@ -17,7 +17,14 @@ public class ScoutMovement : MonoBehaviour
         // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        gameObject.transform.parent = GameObject.Find("PERSISTENTOBJECTS").transform;
+        if (GameObject.Find("PERSISTENTOBJECTS").transform.Find("Scout") == null)
+        {
+            gameObject.transform.parent = GameObject.Find("PERSISTENTOBJECTS").transform;
+        }
+        else { 
+            Destroy(gameObject);
+        }
+        
         Nav = GetComponent<NavMeshAgent>();
 
         Nav.updatePosition = false;
