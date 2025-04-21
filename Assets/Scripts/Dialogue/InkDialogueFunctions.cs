@@ -2,6 +2,7 @@ using UnityEngine;
 using Ink.Runtime;
 using TMPro;
 using NUnit.Framework.Constraints;
+using UnityEngine.SceneManagement;
 
 public class InkDialogueFunctions
 {
@@ -31,6 +32,11 @@ public class InkDialogueFunctions
         {
             gameManager.SetStoryPoint((STORYPOINT) storypoint);
         });
+
+        story.BindExternalFunction("LoadScene", (int sceneIndex) =>
+        {
+            SceneManager.LoadScene(sceneIndex);
+        });
         story.BindExternalFunction("CombatTransition", () =>
         {
             sceneManager.TriggerCombat();
@@ -50,6 +56,8 @@ public class InkDialogueFunctions
         story.UnbindExternalFunction("ChangeSpeaker");
         story.UnbindExternalFunction("PlayCutscene");
         story.UnbindExternalFunction("ChangeStoryPoint");
+        story.UnbindExternalFunction("LoadScene");
+        story.UnbindExternalFunction("CombatTransition");
         story.UnbindExternalFunction("UpdateDialogueState");
         story.UnbindExternalFunction("UpdateCakeFlavor");
     }

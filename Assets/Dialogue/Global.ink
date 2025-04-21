@@ -2,6 +2,7 @@ EXTERNAL ChangeSpeaker(name)
 EXTERNAL PlayCutscene(cutscene)
 EXTERNAL ChangeStoryPoint(storypoint)
 EXTERNAL CombatTransition()
+EXTERNAL LoadScene(sceneIndex)
 EXTERNAL UpdateDialogueState(state)
 EXTERNAL UpdateCakeFlavor(flavor)
 
@@ -21,6 +22,8 @@ VAR current_story_point = 0
 ~ current_story_point = storypointIndex
 
 === function CombatTransition() ===
+~ return 1
+=== function LoadScene(sceneIndex) ===
 ~ return 1
 === function UpdateDialogueState(state)===
 ~ return 1

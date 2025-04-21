@@ -1,4 +1,5 @@
 INCLUDE ../../Global.ink
+~ PlayCutscene("BibblebooDeath")
 ~ ChangeSpeaker("SCOUT")
 Scout: Woah! That was awesome! Where did that come from?
     * "I didn’t mean to do that" 
