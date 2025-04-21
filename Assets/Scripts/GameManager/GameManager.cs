@@ -5,12 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
+
+    public static GameManager instance;
+
     STORYPOINT currentStorypoint = STORYPOINT.WakeUp;
     Dictionary<string, bool> CutsceneTriggersActive = new Dictionary<string, bool>();
     Dictionary<string, int> DialogueVisited = new Dictionary<string, int>();
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
