@@ -1,3 +1,4 @@
+using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
@@ -27,6 +28,7 @@ public class Combat : MonoBehaviour
 {
     public static Combat Instance { get; private set; }
     private int GameCombatNumb = 0;
+    public TextDisplay display;
 
     //[SerializeField] private bool IsPlayerTurn;
 
@@ -51,7 +53,7 @@ public class Combat : MonoBehaviour
 
     private Enemy[] enemyArray = new Enemy[4];
 
-    public static EnemyAction ba1 = new EnemyAction("Wooden Spoon", EnemyActionType.ATTACK, 6);
+    public static EnemyAction ba1 = new EnemyAction("Spoon", EnemyActionType.ATTACK, 6);
     public static EnemyAction ba2 = new EnemyAction("Cake", EnemyActionType.HEAL, 5);
     public static EnemyAction ba3 = new EnemyAction("Mix", EnemyActionType.BUFF, 0);
     public static EnemyAction bba1 = new EnemyAction("Push", EnemyActionType.ATTACK, 5);
@@ -107,21 +109,7 @@ public class Combat : MonoBehaviour
 
     private void Update() 
     {
-        //switch (currentState)
-        //{
-        //    case (CombatState.PlayerTurn):
-        //        awaitMenuInput();
-        //        break;
-        //    case (CombatState.EnemyTurn):
-        //        break;
-        //    case (CombatState.AttackCommence):
-                
-        //        break;
-        //    case (CombatState.ItemCommence):
-        //        break;
-        //    default:
-        //        break;
-        //}
+        
     }
 
     public void AttackButton1Press()
@@ -138,6 +126,8 @@ public class Combat : MonoBehaviour
     {
         DoPlayerAttack(PlayerAttack.Tease);
     }
+
+
 
     public static void SetTempSliderRead(int i) => tempSliderRead = i;
 
@@ -221,13 +211,13 @@ public class Combat : MonoBehaviour
             if (hitLogs[i] == 0)
             {
                 //animation
-                //print 0 on screen
+                display.ShowText("miss", Color.red);
                 //Debug.Log(0);
             }
             else if (hitLogs[i] == 1)
             {
                 //animation
-                //print damage# on screen
+                display.ShowNumber(dam, Color.red);
                 enemyCurrHP -= dam;
                 EnemyCurrBar.fillAmount = (float)enemyCurrHP / (float)enemyMaxHP;
                 //Debug.Log(dam);
@@ -235,32 +225,38 @@ public class Combat : MonoBehaviour
             else
             {
                 //animation
-                //print crit# on screen
+                display.ShowNumber(crit, Color.red);
                 enemyCurrHP -= crit;
                 EnemyCurrBar.fillAmount = (float)enemyCurrHP / (float)enemyMaxHP;
                 //Debug.Log(crit);
             }
             
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        if (enemyCurrHP <= 0 )
+        {
+            GoToWin();
+        }
         isPlayerTurn = false;
         StartCoroutine(EnemyTurn());
     }
 
     IEnumerator EnemyTurn()
     {
-        Debug.Log(enemyArray[GameCombatNumb].Name);
-
+        
+        
         int moveNumber = Random.Range(0, 3);
         int numbMod = 0;
+        display.ShowText(enemyArray[GameCombatNumb].actionArray[moveNumber].Name, Color.white);
+        yield return new WaitForSeconds(1.2f);
         EnemyActionType tempType = enemyArray[GameCombatNumb].actionArray[moveNumber].Type;
 
-        if (enemyArray[GameCombatNumb].isWeakened == true) 
+        if (enemyArray[GameCombatNumb].isWeakened == true)
         {
             numbMod -= 4;
             enemyArray[GameCombatNumb].isWeakened = false;
         }
-        if (enemyArray[GameCombatNumb].isBuffed == true) 
+        if (enemyArray[GameCombatNumb].isBuffed == true)
         {
             numbMod += 4;
             enemyArray[GameCombatNumb].isBuffed = false;
@@ -270,7 +266,7 @@ public class Combat : MonoBehaviour
         if (tempType == EnemyActionType.ATTACK)
         {
             //animation
-            //print enemyArray[GameCombatNumb].actionArray[moveNumber].Value + numbMod on screen
+            display.ShowNumber(enemyArray[GameCombatNumb].actionArray[moveNumber].Value + numbMod, Color.red);
             playerCurrHP -= enemyArray[GameCombatNumb].actionArray[moveNumber].Value + numbMod;
             PlayerCurrBar.fillAmount = (float)playerCurrHP / (float)playerMaxHP;
             Debug.Log("Did " + (enemyArray[GameCombatNumb].actionArray[moveNumber].Value + numbMod) + " damage");
@@ -278,7 +274,7 @@ public class Combat : MonoBehaviour
         else if (tempType == EnemyActionType.HEAL)
         {
             //animation
-            //print enemyArray[GameCombatNumb].actionArray[moveNumber].Value  on screen
+            display.ShowNumber(enemyArray[GameCombatNumb].actionArray[moveNumber].Value, Color.green);
             enemyCurrHP += enemyArray[GameCombatNumb].actionArray[moveNumber].Value;
             if (enemyCurrHP < 0)
             {
@@ -291,16 +287,21 @@ public class Combat : MonoBehaviour
         else if (tempType == EnemyActionType.WEAKEN)
         {
             playerIsWeakened = true;
-            Debug.Log("player weakened");
-        } 
+            display.ShowText("weaken", Color.magenta);
+        }
         else
         {
             enemyArray[GameCombatNumb].isBuffed = true;
-            Debug.Log("enemy buffed");
+            display.ShowText("buffed", Color.yellow);
         }
 
- 
-        yield return new WaitForSeconds(3f);
+
+        yield return new WaitForSeconds(1f);
+        if (playerCurrHP <= 0)
+        {
+            GoToLose();
+        }
+        
         Debug.Log("your turn");
         SetInputBlocked(false);
     }
@@ -308,17 +309,13 @@ public class Combat : MonoBehaviour
     public void GoToWin()
     {
         GameCombatNumb++;
+        //leave combat
     }
 
+    public void GoToLose()
+    { 
+        //go back to start of combat and reinitialize
+    }
 
-    ////ui motion, anims, sequence
-    //IEnumerator SpawnBars(int barCount)
-    //{
-    //    for (int i = 0; i < barCount; i++)
-    //    {
-    //        Instantiate(barPrefab, spawnPoint.position, Quaternion.identity);
-    //        yield return new WaitForSeconds(delayBetweenBars);
-    //    }
-    //}
 }
 
