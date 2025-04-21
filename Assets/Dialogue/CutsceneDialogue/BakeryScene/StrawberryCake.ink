@@ -2,6 +2,7 @@ INCLUDE ../../Global.ink
 INCLUDE BakerChallenge.ink
 
 ~ cake_flavor = "strawberry"
+~ UpdateCakeFlavor(cake_flavor)
 ~ ChangeSpeaker("SCOUT")
 Ooh, {cake_flavor}! Do you think we should get that one?
    * Yes

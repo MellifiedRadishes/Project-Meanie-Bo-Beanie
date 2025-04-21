@@ -25,4 +25,6 @@ She can’t be here.
 I… I can’t let you leave, I can’t…
 ~ ChangeSpeaker("SCOUT")
 Get her out of our way.
+~ CombatTransition()
+~ ChangeStoryPoint(5)
     -> END

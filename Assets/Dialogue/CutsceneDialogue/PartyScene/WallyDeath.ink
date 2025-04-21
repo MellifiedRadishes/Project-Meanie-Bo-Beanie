@@ -59,6 +59,8 @@ She should get the fuck out of here!
     -> end_convo
 ==== end_convo ====
 ~ ChangeSpeaker("SCOUT")
-Meanie, wait–!
+~ ChangeStoryPoint(4)
 ~ PlayCutscene("MeanieRunFromParty")
+Meanie, wait–!
+~ LoadScene(0)
 -> END

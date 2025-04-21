@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     STORYPOINT currentStorypoint = STORYPOINT.WakeUp;
-    Dictionary<string, bool> CutsceneTriggersActive = new Dictionary<string, bool>();
+    Dictionary<string, bool> CutsceneTriggersVisited = new Dictionary<string, bool>();
     Dictionary<string, int> DialogueVisited = new Dictionary<string, int>();
+
+    private string CakeFlavor = "Chocolate";
     void Awake()
     {
         if (instance == null)
@@ -36,15 +38,16 @@ public class GameManager : MonoBehaviour
         GameObject TriggersParentObject = GameObject.Find("CUTSCENETRIGGERS");
         if (TriggersParentObject != null) {
             foreach (Transform child in TriggersParentObject.transform) {
-                CutsceneTriggersActive.TryGetValue(child.name, out bool TriggerActive);
-                if (CutsceneTriggersActive.ContainsKey(child.name))
+                CutsceneTriggersVisited.TryGetValue(child.name, out bool TriggerVisited);
+                if (CutsceneTriggersVisited.ContainsKey(child.name))
                 {
-                    if (!TriggerActive) {
+                    if (TriggerVisited) {
                         Destroy(child.gameObject);
                     }
+                    
                 }
                 else {
-                    CutsceneTriggersActive.Add(child.name, true);
+                    CutsceneTriggersVisited.Add(child.name, false);
                 }
             }
         }
@@ -52,10 +55,10 @@ public class GameManager : MonoBehaviour
 
     public void DisableTrigger(string triggerName)
     {
-        if (!CutsceneTriggersActive.ContainsKey(triggerName)) {
+        if (!CutsceneTriggersVisited.ContainsKey(triggerName)) {
             Debug.Log("ERROR: CUTSCENE TRIGGER " + triggerName + " DOES NOT EXIST");
         }
-        CutsceneTriggersActive[triggerName] = false;
+        CutsceneTriggersVisited[triggerName] = false;
     }
 
     /*====DIALOGUE STATE STORAGE====*/
@@ -106,6 +109,18 @@ public class GameManager : MonoBehaviour
     public STORYPOINT GetStoryPoint()
     {
         return currentStorypoint;
+    }
+
+    /*====CAKEFLAVOR SETTERS/GETTERS====*/
+    public void SetCakeFlavor(string flavor)
+    {
+
+        CakeFlavor = flavor;
+    }
+
+    public string GetCakeFlavor()
+    {
+        return CakeFlavor;
     }
 
 }

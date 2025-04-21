@@ -3,7 +3,7 @@
 Alright, sounds good!
 Hey, Buck! How much for this one?
 ~ ChangeSpeaker("BUCK")
-Buck: Excellent choice! That’ll be sixteen dollars.
+Excellent choice! That’ll be sixteen dollars.
 ~ ChangeSpeaker("SCOUT")
 Ah.
 Okay.
@@ -30,7 +30,8 @@ Let’s have a friendly spar! If you win, I’ll give you the cake.
 Meanie, we should go for it! This might be the only way to get a cake for Wally!
 You take him on, and I’ll be moral support. How’s about it?
     * "That’s not fair"
-    The next time somebody has a birthday and we have to fight the baker for a cake, I’ll step in the ring. Deal? Deal.
+    The next time somebody has a birthday and we have to fight the baker for a cake, I’ll step in the ring. 
+    Deal? Deal.
     -> divert2
     *"This’ll be so cathartic"
     That’s the spirit! Beat his ass!
@@ -38,4 +39,7 @@ You take him on, and I’ll be moral support. How’s about it?
 ====divert2====
 ~ ChangeSpeaker("BUCK")
 Alright, let’s get to it!
--> END
+* Begin Combat
+    ~ ChangeStoryPoint(2)
+    ~ CombatTransition()
+    -> END

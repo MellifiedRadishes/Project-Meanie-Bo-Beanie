@@ -44,7 +44,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         CheckCurrentStorypoint();
     }
-    private void CheckCurrentStorypoint()
+    public void CheckCurrentStorypoint()
     {
         if (this == null)
         {
