@@ -4781,6 +4781,18 @@ PrefabInstance:
       propertyPath: m_text
       value: NEIGHBORHOOD
       objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: inkJSONDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: ab518b8748c6efc4eb71aa29181aa053, type: 3}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: StorypointsToActivateTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: scene
       value: 2
@@ -4791,7 +4803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.z

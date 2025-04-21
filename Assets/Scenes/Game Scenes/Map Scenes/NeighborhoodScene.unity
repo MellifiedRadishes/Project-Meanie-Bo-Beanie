@@ -141,13 +141,29 @@ PrefabInstance:
 
         HOUSE'
       objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: inkJSONDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 4ce7eb1b8e8a06043aa7eeb3d1379f6c, type: 3}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: StorypointsToActivateTrigger.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[1]'
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: scene
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.z
@@ -447,9 +463,21 @@ PrefabInstance:
 
         B'
       objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: inkJSONDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 55da78e3bc05bab4494bcca82609c23d, type: 3}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: StorypointsToActivateTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[0]'
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: scene
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.x
@@ -457,7 +485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.z
@@ -3189,6 +3217,22 @@ PrefabInstance:
       propertyPath: m_text
       value: WOODS
       objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: inkJSONDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 93ac97ff8bfda324880bde1de68282cf, type: 3}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: StorypointsToActivateTrigger.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: scene
       value: 5
@@ -3199,7 +3243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.z
@@ -3687,11 +3731,23 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 722ff14cfc5efc34fbb7a38a49636d77, type: 3}
     - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: StorypointsToActivateTrigger.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: 'StorypointsToActivateTrigger.Array.data[0]'
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[2]'
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[3]'
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: scene
@@ -3699,7 +3755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.z
