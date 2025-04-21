@@ -2903,21 +2903,33 @@ PrefabInstance:
       propertyPath: m_text
       value: DOENUTS
       objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: inkJSONDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: a3ff189e7dddac34b847e1b35e2cd6e0, type: 3}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: StorypointsToActivateTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656587166135789091, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
+      propertyPath: 'StorypointsToActivateTrigger.Array.data[0]'
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: scene
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.x
-      value: -2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.z
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8847187502448868377, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: m_LocalScale.z
@@ -3721,7 +3733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.z
