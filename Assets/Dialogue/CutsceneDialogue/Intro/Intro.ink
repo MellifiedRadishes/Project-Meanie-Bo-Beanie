@@ -24,4 +24,3 @@ I’ll be waiting!
 ~ ChangeStoryPoint(1)
 Press WASD to move and F to interact with objects!
 -> END
-

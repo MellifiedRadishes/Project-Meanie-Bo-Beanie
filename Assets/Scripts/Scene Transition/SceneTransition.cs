@@ -18,28 +18,17 @@ public class SceneTransition : MonoBehaviour
 
     /*==Player Object/Scripts==*/
     private GameObject Player;
+    private GameObject Scout;
     private CharacterController PlayerCharacterController;
     
 
-    void Start()
+    void Awake()
     {
         PersistentObjects = GameObject.Find("PERSISTENTOBJECTS").GetComponent<PersistentObject>();
         Player = GameObject.Find("Player");
         PlayerCharacterController = GameObject.Find("Player").GetComponent<CharacterController>();
+        
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TriggerCombat();
-
-        }
-        if (Input.GetKeyDown(KeyCode.K)) {
-            LeaveCombat();
-        }
     }
     /*====FUNCTIONS TO TRIGGER SCENE TRANSITIONS====*/
     void TriggerCombat()
@@ -74,14 +63,16 @@ public class SceneTransition : MonoBehaviour
         cutsceneManager.PlayCutscene("SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
-
         SceneManager.LoadScene((int)scene);
 
         gameManager.CheckCutsceneTriggers();
 
         // Force Change Player Position
-        //PlayerCharacterController.enabled = false;
         Player.transform.position = newPosition;
-        //PlayerCharacterController.enabled = true;
+        Transform Scout = PersistentObjects.transform.Find("Scout");
+        if (Scout != null)
+        {
+            Scout.GetComponent<ScoutMovement>().TeleportToPlayer();
+        }
     }
 }
