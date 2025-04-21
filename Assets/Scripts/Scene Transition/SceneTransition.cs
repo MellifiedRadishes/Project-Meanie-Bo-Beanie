@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
+    [SerializeField] private CutsceneManager cutsceneManager;
+    [SerializeField] private GameManager gameManager;
     public static SceneTransition instance;
 
     /*====ANIMATION VARIABLES====*/
     SCENE oldScene;
-    [SerializeField] Animator transition;
     public float transitionDuration = 1f;
 
     /*====SAVED GAME OBJECTS====*/
@@ -18,27 +19,14 @@ public class SceneTransition : MonoBehaviour
     /*==Player Object/Scripts==*/
     private GameObject Player;
     private CharacterController PlayerCharacterController;
-    private PlayerMovementScript PlayerMovement;
+    
 
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
     void Start()
     {
         PersistentObjects = GameObject.Find("PERSISTENTOBJECTS").GetComponent<PersistentObject>();
         Player = GameObject.Find("Player");
         PlayerCharacterController = GameObject.Find("Player").GetComponent<CharacterController>();
-        PlayerMovement = GameObject.Find("Player").GetComponent<PlayerMovementScript>();
+
     }
 
     // Update is called once per frame
@@ -69,37 +57,31 @@ public class SceneTransition : MonoBehaviour
 
     /*====COROUTINES FOR SCENE TRANSITIONS====*/
     IEnumerator ToggleCombat(SCENE scene, Boolean poEnable) {
-
-        PlayerMovement.SetCutscene(true); // Stop Player Movement
-        transition.SetTrigger("HIDE"); // Hide Current Scene
+       
+        cutsceneManager.PlayCutscene("SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
 
         SceneManager.LoadScene((int) scene);
 
         // Temporarily Deactive
+        gameManager.CheckCutsceneTriggers();
         PersistentObjects.ToggleChildren(poEnable);
-
-        transition.ResetTrigger("HIDE"); // Reveal Scene
-        PlayerMovement.SetCutscene(false); // Re-enable Player Movement
-
     }
 
     IEnumerator LoadMapScene(SCENE scene, Vector3 newPosition)
     {
-        PlayerMovement.SetCutscene(true); // Stop Player Movement
-        transition.SetTrigger("HIDE"); // Hide Current Scene
+        cutsceneManager.PlayCutscene("SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
 
         SceneManager.LoadScene((int)scene);
 
-        // Force Change Player Position
-        PlayerCharacterController.enabled = false;
-        Player.transform.position = newPosition;
-        PlayerCharacterController.enabled = true;
+        gameManager.CheckCutsceneTriggers();
 
-        transition.ResetTrigger("HIDE"); // Reveal Scene
-        PlayerMovement.SetCutscene(false); // Re-enable Player Movement
+        // Force Change Player Position
+        //PlayerCharacterController.enabled = false;
+        Player.transform.position = newPosition;
+        //PlayerCharacterController.enabled = true;
     }
 }
