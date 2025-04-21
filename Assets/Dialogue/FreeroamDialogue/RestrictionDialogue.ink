@@ -1,2 +1,0 @@
-INCLUDE ../Global.ink
-

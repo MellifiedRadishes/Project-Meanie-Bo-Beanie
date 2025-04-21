@@ -11,7 +11,10 @@ public class PlayerMovementScript : MonoBehaviour
     //Controller Variables
     private CharacterController Controller;
     private float VerticalInput;
-    private float HortizontalInput;
+    private float HorizontalInput;
+
+    private bool isMoving;
+
     public Boolean InCutscene;
 
     //Visuals
@@ -23,29 +26,37 @@ public class PlayerMovementScript : MonoBehaviour
         Controller = gameObject.GetComponent<CharacterController>();
         InCutscene = false;
         animator = model.GetComponent<Animator>();
+        isMoving = false;
     }
 
     void Update()
     {
         VerticalInput = 0;
-        HortizontalInput = 0;
-        if (!InCutscene) {
+        HorizontalInput = 0;
+        if (InCutscene)
+        {
+            Controller.enabled = false;
+            isMoving = false;
+        }
+        else
+        {
+            //Reads User Input
+            VerticalInput = Input.GetAxis("Vertical");
+            HorizontalInput = Input.GetAxis("Horizontal");
+            UpdateIsMoving();
+
+            //Enables the Character Controller
+            Controller.enabled = true;
             Move();
         }
         UpdateModel();
     }
 
-
     private void Move() {
-
-        //Reads User Input
-        VerticalInput = Input.GetAxis("Vertical");
-        HortizontalInput = Input.GetAxis("Horizontal");
-
         //Calculates Player Gravity
         CalcGravity();
 
-        Vector3 MoveDirection = Vector3.ClampMagnitude(new Vector3(HortizontalInput, -yVelocity, VerticalInput), 1);
+        Vector3 MoveDirection = Vector3.ClampMagnitude(new Vector3(HorizontalInput, -yVelocity, VerticalInput), 1);
         Controller.Move(Time.deltaTime * (MoveDirection * MoveSpeed));
     }
 
@@ -59,21 +70,32 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void UpdateModel() {
         
-        if (VerticalInput == 0 && HortizontalInput == 0)
+        if (isMoving)
         {
-            animator.ResetTrigger("WALK");
+            animator.SetTrigger("WALK");
         }
         else {
-            animator.SetTrigger("WALK");
+            animator.ResetTrigger("WALK");
         }
         ModelDirectionUpdate();
     }
 
+    private void UpdateIsMoving() {
+        if (VerticalInput == 0 && HorizontalInput == 0)
+        {
+            isMoving = false;
+        }
+        else
+        {
+            isMoving = true;
+        }
+    }
+
     private void ModelDirectionUpdate() {
-        if (HortizontalInput > 0) {
-            model.transform.localScale = new Vector3(-.1f, .1f, .1f);
-        } else if (HortizontalInput < 0) {
-            model.transform.localScale = new Vector3(.1f, .1f, .1f);
+        if (HorizontalInput > 0) {
+            model.transform.rotation = Quaternion.Euler(0, -180, 0);
+        } else if (HorizontalInput < 0) {
+            model.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -85,6 +107,16 @@ public class PlayerMovementScript : MonoBehaviour
 
     public void SetCutscene(Boolean boolean) {
         InCutscene = boolean;
+    }
+
+    public Boolean GetIsMoving()
+    {
+        return isMoving;
+    }
+
+    public void SetIsMoving(Boolean boolean)
+    {
+        isMoving = boolean;
     }
 
 }

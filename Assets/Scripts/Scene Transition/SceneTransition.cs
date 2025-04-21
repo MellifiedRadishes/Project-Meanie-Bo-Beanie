@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
+    [SerializeField] private CutsceneManager cutsceneManager;
+    [SerializeField] private GameManager gameManager;
     public static SceneTransition instance;
 
     /*====ANIMATION VARIABLES====*/
     SCENE oldScene;
-    [SerializeField] Animator WipeTransition;
     public float transitionDuration = 1f;
 
     /*====SAVED GAME OBJECTS====*/
@@ -17,29 +18,17 @@ public class SceneTransition : MonoBehaviour
 
     /*==Player Object/Scripts==*/
     private GameObject Player;
+    private GameObject Scout;
     private CharacterController PlayerCharacterController;
-    private PlayerMovementScript PlayerMovement;
+    
 
-    void Start()
+    void Awake()
     {
-        WipeTransition.gameObject.SetActive(true);
         PersistentObjects = GameObject.Find("PERSISTENTOBJECTS").GetComponent<PersistentObject>();
         Player = GameObject.Find("Player");
         PlayerCharacterController = GameObject.Find("Player").GetComponent<CharacterController>();
-        PlayerMovement = GameObject.Find("Player").GetComponent<PlayerMovementScript>();
-    }
+        
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TriggerCombat();
-
-        }
-        if (Input.GetKeyDown(KeyCode.K)) {
-            LeaveCombat();
-        }
     }
     /*====FUNCTIONS TO TRIGGER SCENE TRANSITIONS====*/
     void TriggerCombat()
@@ -57,37 +46,33 @@ public class SceneTransition : MonoBehaviour
 
     /*====COROUTINES FOR SCENE TRANSITIONS====*/
     IEnumerator ToggleCombat(SCENE scene, Boolean poEnable) {
-        
-        PlayerMovement.SetCutscene(true); // Stop Player Movement
-        WipeTransition.SetTrigger("HIDE"); // Hide Current Scene
+       
+        cutsceneManager.PlayCutscene("SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
 
         SceneManager.LoadScene((int) scene);
 
         // Temporarily Deactive
+        gameManager.CheckCutsceneTriggers();
         PersistentObjects.ToggleChildren(poEnable);
-
-        WipeTransition.ResetTrigger("HIDE"); // Reveal Scene
-        PlayerMovement.SetCutscene(false); // Re-enable Player Movement
-
     }
 
     IEnumerator LoadMapScene(SCENE scene, Vector3 newPosition)
     {
-        PlayerMovement.SetCutscene(true); // Stop Player Movement
-        WipeTransition.SetTrigger("HIDE"); // Hide Current Scene
+        cutsceneManager.PlayCutscene("SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
-
         SceneManager.LoadScene((int)scene);
 
-        // Force Change Player Position
-        PlayerCharacterController.enabled = false;
-        Player.transform.position = newPosition;
-        PlayerCharacterController.enabled = true;
+        gameManager.CheckCutsceneTriggers();
 
-        WipeTransition.ResetTrigger("HIDE"); // Reveal Scene
-        PlayerMovement.SetCutscene(false); // Re-enable Player Movement
+        // Force Change Player Position
+        Player.transform.position = newPosition;
+        Transform Scout = PersistentObjects.transform.Find("Scout");
+        if (Scout != null)
+        {
+            Scout.GetComponent<ScoutMovement>().TeleportToPlayer();
+        }
     }
 }

@@ -1,7 +1,7 @@
 INCLUDE ../../Global.ink
 ~ ChangeSpeaker("GINGER")
 Perfect. Alright, everybody! Wally’s on his way. Let’s get in position!
-~ PlayCutscene(2)
+~ PlayCutscene("PartySurprise")
 ~ ChangeSpeaker("EVERYBODY")
 Happy birthday, Walnut!
 ~ ChangeSpeaker("WALNUT")
@@ -16,7 +16,7 @@ Guardatevi dal coniglio!
 Yeah, Wally! Take a day to kick back, enjoy the party, and eat some cake. You’ve earned it!
 ~ ChangeSpeaker("WALNUT")
 Well, if you inshisht…
-~ PlayCutscene(3)
+~ PlayCutscene("WalnutEatCake")
 Mmh! Looksh shucculent!
 glorpsh gobble shmack *
 Mmmh!! Tastesh shucculent, too!
@@ -25,15 +25,15 @@ See? He loves it! We rocked it, Meanie!
 ~ ChangeSpeaker("WALNUT")
 I jusht wanted to thank you all for being my besht friends…
 The besht that a chipmuhnk could ever ashk for…
-~ PlayCutscene(4)
+~ PlayCutscene("StomachGurgle")
 …Waiht… Did that cake have {cake_flavor} in it? Wash that a -flavor- cake?
 ~ ChangeSpeaker("SCOUT")
 Yeah! Only the best for our Wally!
 ~ ChangeSpeaker("WALNUT")
 I… I…!
-~ PlayCutscene(5)
+~ PlayCutscene("StomachGurgle")
 I HAVE A SHERIOUS {cake_flavor} ALLERGY!!!!
-~ PlayCutscene(6)
+~ PlayCutscene("WalnutExplosion")
 ~ ChangeSpeaker("EVERYBODY")
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH
 ~ ChangeSpeaker("PIRO")
@@ -43,7 +43,8 @@ Ginger: MEANIE, YOU BASTARD! YOU BLEW UP WALLY!!
 ~ ChangeSpeaker("RUSTY")
 Rusty: OH MY GOD SOMEBODY CALL THE POLICE
 ~ ChangeSpeaker("")
-Whoops! Killing people means jail for Meanie. She should get the fuck out of here!
+Whoops! Killing people means jail for Meanie.
+She should get the fuck out of here!
 *   Go home!
     -> end_convo
 *   Go home NOW!
@@ -51,5 +52,5 @@ Whoops! Killing people means jail for Meanie. She should get the fuck out of her
 ==== end_convo ====
 ~ ChangeSpeaker("SCOUT")
 Meanie, wait–!
-~ PlayCutscene(7)
+~ PlayCutscene("MeanieRunFromParty")
 -> END

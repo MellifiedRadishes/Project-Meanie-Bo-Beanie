@@ -1,8 +1,8 @@
 INCLUDE ../../Global.ink
-~ PlayCutscene(0)
+~ PlayCutscene("IntroKnockScene")
 ~ ChangeSpeaker("SCOUT")
 - Meanie? Are you up yet?
-~ PlayCutscene(1)
+~ PlayCutscene("WakeUpScene")
 - C’mon, Meanie! We’ve got Wally’s birthday party today, remember?
 ~ ChangeSpeaker("")
 - Meanie needs your help to make decisions! What should she say?
@@ -21,6 +21,6 @@ Just… y’know, walk down that hallway. And open the door. Like you’ve done 
 Nice and simple, right?
 I’ll be waiting!
 ~ ChangeSpeaker("")
+~ ChangeStoryPoint(1)
 Press WASD to move and F to interact with objects!
 -> END
-

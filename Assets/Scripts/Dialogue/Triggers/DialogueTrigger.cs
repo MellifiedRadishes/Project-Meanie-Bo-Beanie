@@ -5,30 +5,24 @@ public class DialogueTrigger : MonoBehaviour
     //*====VARIABLES====*/
 
     // Ink Dialogue Story Files
-    [SerializeField] private TextAsset inkJSONMainDialogue = null;
-    [SerializeField] private TextAsset inkJSONSecondDialogue = null;
+    [SerializeField] private TextAsset inkJSONDialogue = null;
 
     // Related Game Objects
-    private GameObject player;
+    private GameObject Player;
     private PlayerMovementScript playerMovement;
     private DialogueManager dialogueManager;
-    private SpriteRenderer SR;
-
-    // Interaction Variables
-    private bool interacted;
+    [SerializeField] private GameObject model;
 
     void Start()
     {
-        player = GameObject.Find("Player");
-        playerMovement = player.GetComponent<PlayerMovementScript>();
+        Player = GameObject.Find("Player");
+        playerMovement = Player.GetComponent<PlayerMovementScript>();
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-        SR = gameObject.GetComponent<SpriteRenderer>();
-        interacted = false;
     }
 
     void Update()
     {
-        if (Vector3.Distance(player.transform.position, this.transform.position) < 1){
+        if (Vector3.Distance(Player.transform.position, this.transform.position) < 1){
             if (playerMovement.GetCutscene()) {
                 return;
             }
@@ -39,27 +33,24 @@ public class DialogueTrigger : MonoBehaviour
 
     }
     void FlipCharacter() {
-        if (player.transform.position.x < transform.position.x)
+        if (model == null) { return;  }
+        if (Player.transform.position.x < transform.position.x)
         {
-            SR.flipX = false;
+            model.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (player.transform.position.x > transform.position.x)
+        else if (Player.transform.position.x > transform.position.x)
         {
-            SR.flipX = true;
+            model.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
     }
 
     void StartDialogue() {
         FlipCharacter();
         playerMovement.SetCutscene(true);
-        if (inkJSONSecondDialogue != null && interacted) // Plays Second Dialogue if Interacted With
-        {
-            dialogueManager.StartStory(inkJSONSecondDialogue);
-        }
-        else // Plays Primary Dialogue if First Time
-        {
-            dialogueManager.StartStory(inkJSONMainDialogue);
-            interacted = true;
-        }
+        dialogueManager.StartStory(inkJSONDialogue);
+    }
+
+    public TextAsset GetDialogueFile() {
+        return inkJSONDialogue;
     }
 }

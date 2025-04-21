@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI SpeakerText;
     [SerializeField] private TextMeshProUGUI TextObject;
     [SerializeField] private CutsceneManager cutsceneManager;
+    [SerializeField] private GameManager gameManager;
 
     // Functions
     private InkDialogueFunctions ExternalFunctions;
@@ -52,12 +53,17 @@ public class DialogueManager : MonoBehaviour {
 
     // Creates a new Story object and starts
     public void StartStory (TextAsset dialogue) {
+        
 		story = new Story (dialogue.text);
         if (OnCreateStory != null) OnCreateStory(story);
+
+        story.variablesState["current_story_point"] = (int) gameManager.GetStoryPoint();
+        story.variablesState["dialogue_state"] = gameManager.GetDialogueState(dialogue.name);
+
         ToggleDialogueBox(true);
 
         dialogueVariables.StartListening(story);
-        ExternalFunctions.Bind(story, this, SpeakerText, cutsceneManager);
+        ExternalFunctions.Bind(story, dialogue, SpeakerText, this, cutsceneManager, gameManager);
 
         RefreshView();
     }
@@ -111,10 +117,6 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    void ToggleDialogueBox(Boolean active) {
-        DialogueBox.SetActive(active); 
-    }
-
     /*====BUTTON FUNCTIONS====*/
     void OnClickChoiceButton(Choice choice)
     {
@@ -147,9 +149,18 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
+    /*====DIALOGUE PAUSING====*/
     public void SetPausedDialogue(bool boolean) { 
         PauseDialogue = boolean;
     }
+
+    void ToggleDialogueBox(Boolean active)
+    {
+        DialogueBox.SetActive(active);
+    }
+
+
+    /*====GETTER FUNCTIONS====*/
 
     public Ink.Runtime.Object GetVariableState(string variableName)
     {
@@ -157,6 +168,10 @@ public class DialogueManager : MonoBehaviour {
         dialogueVariables.variables.TryGetValue(variableName, out variableValue);
         return variableValue;
        
+    }
+
+    public bool CanStoryContinue() { 
+        return story.canContinue;
     }
 
 }
