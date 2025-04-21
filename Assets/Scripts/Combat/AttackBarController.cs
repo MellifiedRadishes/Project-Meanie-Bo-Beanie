@@ -31,22 +31,25 @@ public class AttackBarController : MonoBehaviour
         return val;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
-
         // Move the AttackBar (pointer) back and forth
         float moveAmount = speed * Time.deltaTime;
         if (movingRight)
         {
             attackBar.position += Vector3.right * moveAmount;
-            if (attackBar.position.x >= rightLimit)
+            if (472 <= attackBar.position.x * attackBar.transform.localScale.x)
             {
                 movingRight = false;
                 val = CheckHit();
                 Triggered = true;
             }
         }
+    }
+    
+    void Update()
+    {
+        
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {

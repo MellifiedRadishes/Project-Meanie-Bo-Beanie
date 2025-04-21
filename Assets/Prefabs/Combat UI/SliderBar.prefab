@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7920564032325811918}
   - component: {fileID: 528381626108546035}
+  - component: {fileID: 8818281746070319563}
   m_Layer: 5
   m_Name: MidBar
   m_TagString: Untagged
@@ -33,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.003, y: -13.4}
+  m_AnchoredPosition: {x: 22.003, y: 50}
   m_SizeDelta: {x: 1200, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &528381626108546035
@@ -91,6 +92,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &8818281746070319563
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843150115200970939}
+  m_CullTransparentMesh: 1
 --- !u!1 &3219595308782297653
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2486572554590148512}
   - component: {fileID: 4504547537108609521}
+  - component: {fileID: 3433286687596590756}
   m_Layer: 5
   m_Name: CritBar
   m_TagString: Untagged
@@ -124,7 +134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.003, y: -12.7}
+  m_AnchoredPosition: {x: 22.003, y: 50}
   m_SizeDelta: {x: 1200, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &4504547537108609521
@@ -182,6 +192,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &3433286687596590756
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219595308782297653}
+  m_CullTransparentMesh: 1
 --- !u!1 &3475052968733187305
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8054048576612564633}
   - component: {fileID: 7065708607753080183}
+  - component: {fileID: 6925570906262304035}
   m_Layer: 5
   m_Name: AttackBar
   m_TagString: Untagged
@@ -208,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 3475052968733187305}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -468, y: -19.245, z: -30}
+  m_LocalPosition: {x: -468, y: 50, z: -30}
   m_LocalScale: {x: 10, y: 168.56966, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -269,6 +288,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &6925570906262304035
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475052968733187305}
+  m_CullTransparentMesh: 1
 --- !u!1 &4708924825447536426
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +307,7 @@ GameObject:
   - component: {fileID: 1678212442871473080}
   - component: {fileID: 5196104828710740769}
   - component: {fileID: 313200835830752976}
+  - component: {fileID: 8579805220726086892}
   m_Layer: 5
   m_Name: SliderBar
   m_TagString: Untagged
@@ -296,7 +324,7 @@ Transform:
   m_GameObject: {fileID: 4708924825447536426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12, y: -19.662, z: -7.2}
+  m_LocalPosition: {x: -12, y: 50, z: -7.2}
   m_LocalScale: {x: 945.58997, y: 73.82213, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -374,6 +402,14 @@ MonoBehaviour:
   greenBar: {fileID: 7920564032325811918}
   critBar: {fileID: 2486572554590148512}
   speed: 75
+--- !u!222 &8579805220726086892
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4708924825447536426}
+  m_CullTransparentMesh: 1
 --- !u!1 &8754314411166676855
 GameObject:
   m_ObjectHideFlags: 0
