@@ -2152,6 +2152,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 26bb5ee6f17a9054197775c1a3c47433, type: 3}
       insertIndex: -1
       addedObject: {fileID: 856992943}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 26bb5ee6f17a9054197775c1a3c47433, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856992944}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 26bb5ee6f17a9054197775c1a3c47433, type: 3}
 --- !u!4 &856992941 stripped
 Transform:
@@ -2177,6 +2180,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJSONDialogue: {fileID: 4900000, guid: ac3baf7e3db1f7c4eabc289cee3ec73a, type: 3}
   model: {fileID: 856992942}
+--- !u!95 &856992944
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856992942}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fbac64ed5fe0ea444806e7dfd56367a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &901875774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2236,6 +2261,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 1d8322ba55503d243842b8557d8bc9cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 901875777}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 1d8322ba55503d243842b8557d8bc9cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 901875778}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 1d8322ba55503d243842b8557d8bc9cf, type: 3}
 --- !u!4 &901875775 stripped
 Transform:
@@ -2261,6 +2289,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJSONDialogue: {fileID: 4900000, guid: 7205f221632bee34ab235c4a6973ccea, type: 3}
   model: {fileID: 901875776}
+--- !u!95 &901875778
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901875776}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d3494d5ead394e45876da5cf7635ce7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1004781346
 GameObject:
   m_ObjectHideFlags: 0

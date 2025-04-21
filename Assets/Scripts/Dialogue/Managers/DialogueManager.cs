@@ -44,11 +44,20 @@ public class DialogueManager : MonoBehaviour {
 
     private void Update()
     {
-        if (story != null) { // Refreshes text on input
-			if (Input.GetMouseButtonDown(0) && !PauseDialogue) {
-				RefreshView();
+        if (TextObject.text == "")
+        {
+            ToggleDialogueBox(false);
+            playerMovement.SetCutscene(false);
+            return;
+        }
+        if (story != null)
+        { // Refreshes text on input
+            if (Input.GetMouseButtonDown(0) && !PauseDialogue)
+            {
+                RefreshView();
             }
-		}
+        }
+        
     }
     /*====DIALOGUE START/STOP====*/
 
@@ -63,6 +72,7 @@ public class DialogueManager : MonoBehaviour {
         story.variablesState["cake_flavor"] = gameManager.GetCakeFlavor();
 
         ToggleDialogueBox(true);
+        playerMovement.SetCutscene(true);
 
         dialogueVariables.StartListening(story);
         ExternalFunctions.Bind(story, dialogue, SpeakerText, this, cutsceneManager, gameManager, sceneManager);

@@ -35,7 +35,7 @@ public class InkDialogueFunctions
 
         story.BindExternalFunction("LoadScene", (int sceneIndex) =>
         {
-            SceneManager.LoadScene(sceneIndex);
+            sceneManager.TriggerSceneChange((SCENE) 0, new Vector3(0, 0.4f, 0));
         });
         story.BindExternalFunction("CombatTransition", () =>
         {

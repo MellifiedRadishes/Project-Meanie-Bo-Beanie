@@ -318,9 +318,9 @@ MonoBehaviour:
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
   m_Time: 4.866666666666666
-  m_Retroactive: 0
+  m_Retroactive: 1
   m_EmitOnce: 0
-  m_Asset: {fileID: 0}
+  m_Asset: {fileID: 11400000, guid: d86e091d778a014419a61e0784998780, type: 2}
 --- !u!114 &8528133061636654543
 MonoBehaviour:
   m_ObjectHideFlags: 1
