@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scenes/Map Scenes/MeanieHouseScene.unity
     guid: ceda9cbc3d3421841b97cd4632b994bc
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/Map Scenes/TownScene.unity
-    guid: 0b479a22a4519bd45a57e38ce07db462
-  - enabled: 1
     path: Assets/Scenes/Game Scenes/Map Scenes/WallyHouseScene.unity
     guid: c339858858473cb4893929fdbe5d5962
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Map Scenes/NeighborhoodScene.unity
     guid: 87b9740df34ef2e4192ee12bd96c0958
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Map Scenes/TownScene.unity
+    guid: 0b479a22a4519bd45a57e38ce07db462
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Map Scenes/DoenutsScene.unity
     guid: 2d2910279555cea49b7534bbf31d30d2
@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CombatScene.unity
     guid: 5d790faf320e4c647bb46de5708a2bfc
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Map Scenes/NeighborhoodB.unity
+    guid: ade4f13ff4851984cab9f8b76b39c693
   - enabled: 0
     path: Assets/Scenes/Game Scenes/TitleScreen.unity
     guid: f31c0f9242213eb42a49a54f81d3aa37
