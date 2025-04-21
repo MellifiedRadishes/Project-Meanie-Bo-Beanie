@@ -10,5 +10,7 @@ INCLUDE ../Global.ink
 }
 ==== party ====
 ~ChangeSpeaker("GINGER")
-Hey, you can’t leave! Not with the cake!
+Hey, you can’t leave!
+~ PlayCutscene("CENTRAL_BarrierAvoidNorth")
+You still have the cake!
 -> END

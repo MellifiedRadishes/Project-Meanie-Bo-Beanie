@@ -14,7 +14,7 @@ INCLUDE ../Global.ink
 ====pre_doenuts====
 ~ ChangeSpeaker("SCOUT")
 Where are you going?
-~ PlayCutscene("BarrierAvoidEast")
+~ PlayCutscene("CENTRAL_BarrierAvoidEast")
 There’s nothing but woods over here.
 Last I checked, Doenuts is the other way.
 -> END
@@ -22,6 +22,6 @@ Last I checked, Doenuts is the other way.
 ====post_doenuts====
 ~ ChangeSpeaker("SCOUT")
 Meanie, where are you going?
-~ PlayCutscene("BarrierAvoidEast")
+~ PlayCutscene("CENTRAL_BarrierAvoidEast")
 The only thing out there is the forest. No Walnuts.
 -> END

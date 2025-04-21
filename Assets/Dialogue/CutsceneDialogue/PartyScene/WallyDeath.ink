@@ -1,4 +1,12 @@
 INCLUDE ../../Global.ink
+~ ChangeSpeaker("")
+Place the Cake?
+* Yes
+    -> death_scene
+* No
+    -> END
+====death_scene====
+~ PlayCutscene("CakePlace_" + cake_flavor)
 ~ ChangeSpeaker("GINGER")
 Perfect. Alright, everybody! Wally’s on his way. Let’s get in position!
 ~ PlayCutscene("PartySurprise")
@@ -26,7 +34,7 @@ See? He loves it! We rocked it, Meanie!
 I jusht wanted to thank you all for being my besht friends…
 The besht that a chipmuhnk could ever ashk for…
 ~ PlayCutscene("StomachGurgle")
-…Waiht… Did that cake have {cake_flavor} in it? Wash that a -flavor- cake?
+…Waiht… Did that cake have {cake_flavor} in it? Wash that a {cake_flavor} cake?
 ~ ChangeSpeaker("SCOUT")
 Yeah! Only the best for our Wally!
 ~ ChangeSpeaker("WALNUT")
@@ -37,11 +45,11 @@ I HAVE A SHERIOUS {cake_flavor} ALLERGY!!!!
 ~ ChangeSpeaker("EVERYBODY")
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH
 ~ ChangeSpeaker("PIRO")
-Piro: DID HE JUST EXPLODE?!
+DID HE JUST EXPLODE?!
 ~ ChangeSpeaker("GINGER")
-Ginger: MEANIE, YOU BASTARD! YOU BLEW UP WALLY!!
+MEANIE, YOU BASTARD! YOU BLEW UP WALLY!!
 ~ ChangeSpeaker("RUSTY")
-Rusty: OH MY GOD SOMEBODY CALL THE POLICE
+OH MY GOD SOMEBODY CALL THE POLICE
 ~ ChangeSpeaker("")
 Whoops! Killing people means jail for Meanie.
 She should get the fuck out of here!

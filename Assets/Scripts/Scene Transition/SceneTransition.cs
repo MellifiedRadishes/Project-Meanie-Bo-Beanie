@@ -18,7 +18,6 @@ public class SceneTransition : MonoBehaviour
 
     /*==Player Object/Scripts==*/
     private GameObject Player;
-    private GameObject Scout;
     private CharacterController PlayerCharacterController;
     
 
@@ -47,7 +46,7 @@ public class SceneTransition : MonoBehaviour
     /*====COROUTINES FOR SCENE TRANSITIONS====*/
     IEnumerator ToggleCombat(SCENE scene, Boolean poEnable) {
        
-        cutsceneManager.PlayCutscene("SceneFadeTransition");
+        cutsceneManager.PlayCutscene("CENTRAL_SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
 
@@ -60,7 +59,7 @@ public class SceneTransition : MonoBehaviour
 
     IEnumerator LoadMapScene(SCENE scene, Vector3 newPosition)
     {
-        cutsceneManager.PlayCutscene("SceneFadeTransition");
+        cutsceneManager.PlayCutscene("CENTRAL_SceneFadeTransition");
 
         yield return new WaitForSeconds(transitionDuration);
         SceneManager.LoadScene((int)scene);

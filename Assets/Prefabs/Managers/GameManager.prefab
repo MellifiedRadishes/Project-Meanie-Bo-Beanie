@@ -58,9 +58,33 @@ PrefabInstance:
     - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[8].key
+      value: 
+      objectReference: {fileID: 6882099818849738873, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[9].key
+      value: 
+      objectReference: {fileID: 2596496374365973528, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[10].key
+      value: 
+      objectReference: {fileID: 2596496374365973528, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
     - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 3558981338782480866}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[9].value
+      value: 
+      objectReference: {fileID: 3558981338782480866}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[10].value
       value: 
       objectReference: {fileID: 3558981338782480866}
     - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
@@ -109,12 +133,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4154938516580460250, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
       propertyPath: m_Name
-      value: CutsceneManager
+      value: CentralCutsceneManager
       objectReference: {fileID: 0}
     - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
       propertyPath: DialogueCanvas
       value: 
       objectReference: {fileID: 2301570987803667852}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[0].name
+      value: MAIN_SceneFadeTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[1].name
+      value: MAIN_BarrierAvoidEast
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[2].name
+      value: MAIN_BarrierAvoidSouth
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[3].name
+      value: MAIN_BarrierAvoidWest
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[0].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: c8415333ce8755a4a8a5180a89a92b7b, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[1].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e18b379ec4f76b498cf36cfe108bde2, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[2].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: dd17e428910811045917d92187fb7762, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[3].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bacbe1c9f1c460489bb764897859658, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -242,7 +302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8016598377229917492, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8481742652887108728, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_Enabled

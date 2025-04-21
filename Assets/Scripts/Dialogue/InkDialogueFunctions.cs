@@ -1,6 +1,7 @@
 using UnityEngine;
 using Ink.Runtime;
 using TMPro;
+using NUnit.Framework.Constraints;
 
 public class InkDialogueFunctions
 {
@@ -16,7 +17,15 @@ public class InkDialogueFunctions
         story.BindExternalFunction("PlayCutscene", (string cutsceneName) =>
         {
             dialogueManager.SetPausedDialogue(true);
-            cutsceneManager.PlayCutscene(cutsceneName);
+
+            if (cutsceneName.Substring(0, 7).Equals("CENTRAL")) {
+                cutsceneManager.PlayCutscene(cutsceneName);
+            }
+            else
+            {
+                CutsceneManager localManager = GameObject.Find("CutsceneManager").GetComponent<CutsceneManager>();
+                localManager.PlayCutscene(cutsceneName);
+            }
         });
         story.BindExternalFunction("ChangeStoryPoint", (int storypoint) =>
         {

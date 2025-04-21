@@ -50,28 +50,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -8700457508437788862, guid: c8415333ce8755a4a8a5180a89a92b7b, type: 2}
     value: {fileID: 0}
-  - key: {fileID: -2819591354750236292, guid: 7e18b379ec4f76b498cf36cfe108bde2, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -2646105958006381909, guid: 7e18b379ec4f76b498cf36cfe108bde2, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 4423195955223560044, guid: 7e18b379ec4f76b498cf36cfe108bde2, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -2819591354750236292, guid: dd17e428910811045917d92187fb7762, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -2646105958006381909, guid: dd17e428910811045917d92187fb7762, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -2819591354750236292, guid: 1bacbe1c9f1c460489bb764897859658, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -2646105958006381909, guid: 1bacbe1c9f1c460489bb764897859658, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 6882099818849738873, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 2596496374365973528, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 6882099818849738873, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 2596496374365973528, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
-    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &9152678246186727007
@@ -86,17 +64,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2e20836f9a514459674e6bb08a81c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueCanvas: {fileID: 0}
-  cutsceneList:
-  - name: SceneFadeTransition
-    cutscene: {fileID: 11400000, guid: c8415333ce8755a4a8a5180a89a92b7b, type: 2}
-  - name: BarrierAvoidSouth
-    cutscene: {fileID: 11400000, guid: dd17e428910811045917d92187fb7762, type: 2}
-  - name: BarrierAvoidEast
-    cutscene: {fileID: 11400000, guid: 7e18b379ec4f76b498cf36cfe108bde2, type: 2}
-  - name: BarrierAvoidWest
-    cutscene: {fileID: 11400000, guid: 1bacbe1c9f1c460489bb764897859658, type: 2}
-  - name: IntroKnockScene
-    cutscene: {fileID: 11400000, guid: 78c8ba1961b808547bfa177ce4ae56df, type: 2}
-  - name: WakeUpScene
-    cutscene: {fileID: 11400000, guid: 5571e090290d34a4ab776fee38377c43, type: 2}
+  cutsceneList: []

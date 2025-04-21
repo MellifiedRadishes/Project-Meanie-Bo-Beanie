@@ -3,7 +3,7 @@ EXTERNAL PlayCutscene(cutscene)
 EXTERNAL ChangeStoryPoint(storypoint)
 EXTERNAL UpdateDialogueState(state)
 
-VAR cake_flavor = ""
+VAR cake_flavor = "chocolate"
 VAR dialogue_state = 0
 VAR current_story_point = 0
 

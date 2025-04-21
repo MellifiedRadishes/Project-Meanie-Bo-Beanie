@@ -2833,6 +2833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSONCutsceneDialogue: {fileID: 4900000, guid: a330e33a357171d4cbf903b5e5bbcb70, type: 3}
+  StorypointsToActivateTrigger: 01000000
 --- !u!1001 &1205024529
 PrefabInstance:
   m_ObjectHideFlags: 0

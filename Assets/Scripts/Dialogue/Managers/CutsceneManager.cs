@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 public class CutsceneManager : MonoBehaviour
 {
     private PlayerMovementScript PlayerMovement;
-    [SerializeField] GameObject DialogueCanvas;
+    private GameObject DialogueCanvas;
     private DialogueManager dialogueManager;
 
     private PlayableDirector Director;
@@ -20,8 +20,12 @@ public class CutsceneManager : MonoBehaviour
     {
         Director = GetComponent<PlayableDirector>();
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        DialogueCanvas = dialogueManager.gameObject.transform.Find("DialogueCanvas").gameObject;
         PlayerMovement = GameObject.Find("Player").GetComponent<PlayerMovementScript>();
         CreateCutsceneDictionary();
+
+
+
     }
 
     // Update is called once per frame
