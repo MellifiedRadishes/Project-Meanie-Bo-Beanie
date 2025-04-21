@@ -27,6 +27,19 @@ public class PlayerMovementScript : MonoBehaviour
         InCutscene = false;
         animator = model.GetComponent<Animator>();
         isMoving = false;
+        
+        // Fix Layer Order
+        GameObject MeanieModel = transform.GetChild(0).gameObject;
+        int count = MeanieModel.transform.childCount;
+        for (int i = 0; i < count; i++)
+        {
+            GameObject temp = MeanieModel.transform.GetChild(i).gameObject;
+            SpriteRenderer sprite = temp.GetComponent<SpriteRenderer>();
+            if (sprite != null)
+            {
+                sprite.sortingOrder = sprite.sortingOrder + 12;
+            }
+        }
     }
 
     void Update()
