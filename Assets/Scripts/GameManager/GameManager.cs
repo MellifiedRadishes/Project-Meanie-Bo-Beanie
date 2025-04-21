@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     STORYPOINT currentStorypoint = STORYPOINT.WakeUp;
     Dictionary<string, bool> CutsceneTriggersActive = new Dictionary<string, bool>();
     Dictionary<string, int> DialogueVisited = new Dictionary<string, int>();
+
+    private string CakeFlavor = "Chocolate";
     void Awake()
     {
         if (instance == null)
@@ -106,6 +108,18 @@ public class GameManager : MonoBehaviour
     public STORYPOINT GetStoryPoint()
     {
         return currentStorypoint;
+    }
+
+    /*====CAKEFLAVOR SETTERS/GETTERS====*/
+    public void SetCakeFlavor(string flavor)
+    {
+
+        CakeFlavor = flavor;
+    }
+
+    public string GetCakeFlavor()
+    {
+        return CakeFlavor;
     }
 
 }

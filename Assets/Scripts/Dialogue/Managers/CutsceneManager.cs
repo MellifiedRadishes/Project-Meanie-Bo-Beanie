@@ -23,16 +23,8 @@ public class CutsceneManager : MonoBehaviour
         DialogueCanvas = dialogueManager.gameObject.transform.Find("DialogueCanvas").gameObject;
         PlayerMovement = GameObject.Find("Player").GetComponent<PlayerMovementScript>();
         CreateCutsceneDictionary();
-
-
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     void CreateCutsceneDictionary() {
         

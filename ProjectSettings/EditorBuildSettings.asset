@@ -24,11 +24,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scenes/Map Scenes/WoodsScene.unity
     guid: 4dbef3d54f89d8d46bd5a1b233da4216
   - enabled: 1
-    path: Assets/Scenes/CombatScene.unity
-    guid: 5d790faf320e4c647bb46de5708a2bfc
+    path: Assets/Scenes/Game Scenes/Map Scenes/DemoCombat.unity
+    guid: f921d486978bd654a94293967348b186
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Map Scenes/NeighborhoodB.unity
     guid: ade4f13ff4851984cab9f8b76b39c693
+  - enabled: 0
+    path: Assets/Scenes/CombatScene.unity
+    guid: 5d790faf320e4c647bb46de5708a2bfc
   - enabled: 0
     path: Assets/Scenes/Game Scenes/TitleScreen.unity
     guid: f31c0f9242213eb42a49a54f81d3aa37

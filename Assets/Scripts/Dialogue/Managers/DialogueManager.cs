@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI SpeakerText;
     [SerializeField] private TextMeshProUGUI TextObject;
     [SerializeField] private CutsceneManager cutsceneManager;
+    [SerializeField] private SceneTransition sceneManager;
     [SerializeField] private GameManager gameManager;
 
     // Functions
@@ -59,11 +60,12 @@ public class DialogueManager : MonoBehaviour {
 
         story.variablesState["current_story_point"] = (int) gameManager.GetStoryPoint();
         story.variablesState["dialogue_state"] = gameManager.GetDialogueState(dialogue.name);
+        story.variablesState["cake_flavor"] = gameManager.GetCakeFlavor();
 
         ToggleDialogueBox(true);
 
         dialogueVariables.StartListening(story);
-        ExternalFunctions.Bind(story, dialogue, SpeakerText, this, cutsceneManager, gameManager);
+        ExternalFunctions.Bind(story, dialogue, SpeakerText, this, cutsceneManager, gameManager, sceneManager);
 
         RefreshView();
     }

@@ -1908,6 +1908,7 @@ GameObject:
   - component: {fileID: 1382097767}
   - component: {fileID: 1382097766}
   - component: {fileID: 1382097765}
+  - component: {fileID: 1382097768}
   m_Layer: 0
   m_Name: Chocolate_Cake
   m_TagString: Untagged
@@ -1927,7 +1928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37d5cce5999aa74bb0d079d6dd25221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONDialogue: {fileID: 0}
+  inkJSONDialogue: {fileID: 4900000, guid: 3c80fccb5a1e1164bb2786b321248506, type: 3}
   model: {fileID: 0}
 --- !u!212 &1382097766
 SpriteRenderer:
@@ -1999,6 +2000,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1382097768
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382097764}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1412123826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2284,6 +2307,263 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1605968545
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].key
+      value: 
+      objectReference: {fileID: -4556050725047809187, guid: 1491ef0e3c9947140ac7c3b8a8b383e8, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[3].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].key
+      value: 
+      objectReference: {fileID: 3219716150565439642, guid: 19cd505635a592a4cb953ae271ed2abb, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[5].key
+      value: 
+      objectReference: {fileID: -4556050725047809187, guid: 1491ef0e3c9947140ac7c3b8a8b383e8, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[6].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[7].key
+      value: 
+      objectReference: {fileID: -4556050725047809187, guid: 1491ef0e3c9947140ac7c3b8a8b383e8, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[8].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[9].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[10].key
+      value: 
+      objectReference: {fileID: -4556050725047809187, guid: 1491ef0e3c9947140ac7c3b8a8b383e8, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[11].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[12].key
+      value: 
+      objectReference: {fileID: -4556050725047809187, guid: 1491ef0e3c9947140ac7c3b8a8b383e8, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[13].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[14].key
+      value: 
+      objectReference: {fileID: -4556050725047809187, guid: 1491ef0e3c9947140ac7c3b8a8b383e8, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[15].key
+      value: 
+      objectReference: {fileID: -5985407592722804032, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 1382097768}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[3].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[5].value
+      value: 
+      objectReference: {fileID: 1382097768}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[6].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[7].value
+      value: 
+      objectReference: {fileID: 1382097768}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[8].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[9].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[10].value
+      value: 
+      objectReference: {fileID: 1382097768}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[11].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[12].value
+      value: 
+      objectReference: {fileID: 1382097768}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[13].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[14].value
+      value: 
+      objectReference: {fileID: 1382097768}
+    - target: {fileID: 1474562500172611754, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_SceneBindings.Array.data[15].value
+      value: 
+      objectReference: {fileID: 1841744065}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813165500899316183, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154938516580460250, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: m_Name
+      value: CutsceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[0].name
+      value: CakeGet_chocolate
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[1].name
+      value: CakeGet_strawberry
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[2].name
+      value: StomachGurgle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[3].name
+      value: WalnutExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[4].name
+      value: MeanieRunFromParty
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[5].name
+      value: CakePlace_strawberry
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[6].name
+      value: CakePlace_strawberry
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[0].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 1491ef0e3c9947140ac7c3b8a8b383e8, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[1].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: f1c15124fd1207549bab2e62dc25b33b, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[2].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 4806e930059b0fc41a0617c2d6c55b55, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[3].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 80442c59015b53f4bad5ce3eddf11f08, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[4].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 34006b90f1dfeb542aa688dff36f62b3, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[5].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 19cd505635a592a4cb953ae271ed2abb, type: 2}
+    - target: {fileID: 9152678246186727007, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
+      propertyPath: cutsceneList.Array.data[6].cutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 19cd505635a592a4cb953ae271ed2abb, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1686bb25a30a5f04bb707c52bacfd29d, type: 3}
 --- !u!1 &1644890920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +3014,7 @@ GameObject:
   - component: {fileID: 1841744064}
   - component: {fileID: 1841744063}
   - component: {fileID: 1841744062}
+  - component: {fileID: 1841744065}
   m_Layer: 0
   m_Name: Strawberry_Cake
   m_TagString: Untagged
@@ -2753,7 +3034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37d5cce5999aa74bb0d079d6dd25221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONDialogue: {fileID: 0}
+  inkJSONDialogue: {fileID: 4900000, guid: c4f0196e167f36c439d2d87d86b81bae, type: 3}
   model: {fileID: 0}
 --- !u!212 &1841744063
 SpriteRenderer:
@@ -2825,6 +3106,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1841744065
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841744061}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1862035148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,6 +3213,106 @@ Transform:
   m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
   m_ConstrainProportionsScale: 1
   m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1951276804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951276805}
+  - component: {fileID: 1951276807}
+  - component: {fileID: 1951276806}
+  m_Layer: 0
+  m_Name: CakeGetCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951276805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951276804}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1978448092}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1951276806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951276804}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 8.907258, y: 1, z: 6.564352}
+  m_Center: {x: 3.953628, y: 0, z: -2.782176}
+--- !u!114 &1951276807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951276804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422aa142b1beb544ebab3d9cc02fe27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSONCutsceneDialogue: {fileID: 4900000, guid: 567b5979870d207488cea2b277bc8f78, type: 3}
+  StorypointsToActivateTrigger: 02000000
+--- !u!1 &1978448091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1978448092}
+  m_Layer: 0
+  m_Name: CUTSCENETRIGGERS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978448092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978448091}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.188, y: 0, z: 2.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1951276805}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2075010552
@@ -3004,6 +3407,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1312278330}
+  - {fileID: 1605968545}
   - {fileID: 1841744064}
   - {fileID: 1382097767}
   - {fileID: 1412123826}
@@ -3032,3 +3436,4 @@ SceneRoots:
   - {fileID: 960399748}
   - {fileID: 920052377}
   - {fileID: 4593079}
+  - {fileID: 1978448092}

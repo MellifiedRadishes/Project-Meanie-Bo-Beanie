@@ -7,7 +7,7 @@ public class InkDialogueFunctions
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Bind(Story story, TextAsset dialogueFile, TextMeshProUGUI speakerText, DialogueManager dialogueManager,
-        CutsceneManager cutsceneManager, GameManager gameManager)
+        CutsceneManager cutsceneManager, GameManager gameManager, SceneTransition sceneManager)
     {
         
         story.BindExternalFunction("ChangeSpeaker", (string name) =>
@@ -31,9 +31,17 @@ public class InkDialogueFunctions
         {
             gameManager.SetStoryPoint((STORYPOINT) storypoint);
         });
+        story.BindExternalFunction("CombatTransition", () =>
+        {
+            sceneManager.TriggerCombat();
+        });
         story.BindExternalFunction("UpdateDialogueState", (int stateIndex) =>
         {
             gameManager.SetDialogueState(dialogueFile.name, stateIndex);
+        });
+        story.BindExternalFunction("UpdateCakeFlavor", (string cakeFlavor) =>
+        {
+            gameManager.SetCakeFlavor(cakeFlavor);
         });
     }
 
@@ -43,6 +51,7 @@ public class InkDialogueFunctions
         story.UnbindExternalFunction("PlayCutscene");
         story.UnbindExternalFunction("ChangeStoryPoint");
         story.UnbindExternalFunction("UpdateDialogueState");
+        story.UnbindExternalFunction("UpdateCakeFlavor");
     }
 
 }

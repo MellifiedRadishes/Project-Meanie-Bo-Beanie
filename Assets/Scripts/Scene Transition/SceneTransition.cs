@@ -30,12 +30,12 @@ public class SceneTransition : MonoBehaviour
 
     }
     /*====FUNCTIONS TO TRIGGER SCENE TRANSITIONS====*/
-    void TriggerCombat()
+    public void TriggerCombat()
     {
         oldScene = (SCENE) SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(ToggleCombat(SCENE.COMBAT, false));
     }
-    void LeaveCombat()
+    public void LeaveCombat()
     {
         StartCoroutine(ToggleCombat(oldScene, true));
     }
@@ -52,8 +52,12 @@ public class SceneTransition : MonoBehaviour
 
         SceneManager.LoadScene((int) scene);
 
+        if (!poEnable) {
+            cutsceneManager.PlayCutscene("DemoCombat");
+        }
+        
+
         // Temporarily Deactive
-        gameManager.CheckCutsceneTriggers();
         PersistentObjects.ToggleChildren(poEnable);
     }
 

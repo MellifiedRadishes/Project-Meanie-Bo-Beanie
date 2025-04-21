@@ -302,7 +302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8016598377229917492, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8481742652887108728, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
       propertyPath: m_Enabled
@@ -314,6 +314,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+--- !u!114 &2833835554725135725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3027066235507216022, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
+  m_PrefabInstance: {fileID: 959692093280685051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1738f0632745e4fa72ba9946628c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3558981338782480866 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4338523848205971993, guid: a85ae0da7bcaa9d49bf4e85d7b996e2b, type: 3}
@@ -352,6 +363,10 @@ PrefabInstance:
       propertyPath: globalsJSON
       value: 
       objectReference: {fileID: 4900000, guid: 0085a27ffb6b6a544ab22f60b5af3d85, type: 3}
+    - target: {fileID: 1985041265043516261, guid: 59c72a878f0bde544805a13ca7d073ad, type: 3}
+      propertyPath: sceneManager
+      value: 
+      objectReference: {fileID: 2833835554725135725}
     - target: {fileID: 1985041265043516261, guid: 59c72a878f0bde544805a13ca7d073ad, type: 3}
       propertyPath: ChoiceContainer
       value: 
