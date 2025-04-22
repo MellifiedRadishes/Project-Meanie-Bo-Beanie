@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, ObjectLayer, Water, UI
 - Active game object:
-  - Name: Cube (3)
+  - Name: DebugText
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

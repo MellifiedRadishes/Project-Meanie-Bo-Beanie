@@ -468,11 +468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3961020317148989292, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: m_text
-      value: NEIGHBORHOOD
+      value: TOWN
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: scene
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8384929202163008958, guid: 3015ab4f066811c469b5933fcacbc9e5, type: 3}
       propertyPath: newPosition.x
