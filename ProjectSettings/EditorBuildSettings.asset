@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Game Scenes/TitleScreen.unity
+    guid: f31c0f9242213eb42a49a54f81d3aa37
+  - enabled: 1
     path: Assets/Scenes/Game Scenes/Map Scenes/MeanieHouseScene.unity
     guid: ceda9cbc3d3421841b97cd4632b994bc
   - enabled: 1
@@ -32,8 +35,5 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/CombatScene.unity
     guid: 5d790faf320e4c647bb46de5708a2bfc
-  - enabled: 0
-    path: Assets/Scenes/Game Scenes/TitleScreen.unity
-    guid: f31c0f9242213eb42a49a54f81d3aa37
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
