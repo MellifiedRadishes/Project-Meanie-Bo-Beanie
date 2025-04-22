@@ -1,5 +1,6 @@
 INCLUDE ../../Global.ink
 ~ ChangeSpeaker("GINGER")
+~ ChangeStoryPoint(3)
 Meanie! Scout! Finally!
 Walnut’ll be here any minute now. You got the cake, right?
 ~ ChangeSpeaker("SCOUT")
