@@ -62,5 +62,5 @@ She should get the fuck out of here!
 ~ ChangeStoryPoint(4)
 ~ PlayCutscene("MeanieRunFromParty")
 Meanie, wait–!
-~ LoadScene(0)
+~ LoadScene(1)
 -> END
